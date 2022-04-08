@@ -11,43 +11,45 @@ class Perfil(TimeStampedModel):
    
     nome_instituicao = models.CharField(
         db_column="NOME_INSTITUICAO",
-        max_length=50
+        max_length=50,
+        null= False
     )
 
-    email_instituicao = models.CharField(
-        db_column="EMAIL_INSTITUICAO",
-        max_length=50
+    dirigente = models.CharField(
+        db_column="DIRIGENTE",
+        max_length=20,
+        null= False
     )
 
-    site = models.CharField(
-        db_column="SITE",
-        max_length=50
-    )
-    
     logradouro = models.CharField(
         db_column="LOGRADOURO",
-        max_length=50
+        max_length=50,
+        null= False
     )
-    
+
     numero = models.CharField(
         db_column="NUMERO",
         max_length=5,
-        validators =[MinLengthValidator(1), MaxLengthValidator(5)]
+        validators =[MinLengthValidator(1), MaxLengthValidator(5)],
+        null= False
     )
 
     bairro = models.CharField(
         db_column="BAIRRO",
-        max_length=25
+        max_length=25,
+        null= False
     )    
-
+    
     cidade = models.CharField(
         db_column="CIDADE",
-        max_length=30
+        max_length=30,
+        null= False
     )
 
     UF = models.CharField(
         db_column="UF",
-        max_length=2
+        max_length=2,
+        null= False
     )
     
     telefone = models.CharField(
@@ -55,19 +57,22 @@ class Perfil(TimeStampedModel):
         max_length=10
     )    
 
-    celular = models.CharField(
-        db_column="CELULAR",
-        max_length=11
-    )    
-
     fax = models.CharField(
         db_column="FAX",
-        max_length=10
+        max_length=10,
+        null= False
     )
-    
-    dirigente = models.CharField(
-        db_column="DIRIGENTE",
-        max_length=20
+
+    site = models.CharField(
+        db_column="SITE",
+        max_length=50,
+        null= False
+    )
+
+    email_instituicao = models.CharField(
+        db_column="EMAIL_INSTITUICAO",
+        max_length=50,
+        null= False
     )
 
     class Meta:

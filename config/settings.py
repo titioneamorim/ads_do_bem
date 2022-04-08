@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'perfil',
     'usuario',
+    'projeto',
+    'template',
 ]
 
 MIDDLEWARE = [
