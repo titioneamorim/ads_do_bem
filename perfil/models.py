@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 
+
 class Perfil(TimeStampedModel):
    
     nome_instituicao = models.CharField(
@@ -17,8 +18,7 @@ class Perfil(TimeStampedModel):
 
     dirigente = models.CharField(
         db_column="DIRIGENTE",
-        max_length=20,
-        null= False
+        max_length=20
     )
 
     logradouro = models.CharField(

@@ -1,10 +1,11 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.db import models
+from perfil.models import Perfil
 
 from perfil.models import Perfil
 
-class Usuario(AbstractUser):
+class UsuarioModel(AbstractUser):
 
     perfil = models.OneToOneField(
         Perfil,

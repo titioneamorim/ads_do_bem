@@ -1,5 +1,7 @@
 from pyexpat import model
 from django.db import models
+from perfil.models import Perfil
+from template.models import Template
 from django_extensions.db.models import TimeStampedModel
 
 
@@ -148,6 +150,18 @@ class Projeto(TimeStampedModel):
     detalhamento_orcamento = models.TextField(
         db_column="DETALHAMENTO_ORCAMENTO",
         null= False,
+    )
+
+    template = models.ForeignKey(
+        Template, 
+        verbose_name="TEMPLATE", 
+        on_delete=models.DO_NOTHING
+        )
+
+    perfil = models.ForeignKey(
+        Perfil,
+        verbose_name=("PERFIL"),
+        on_delete=models.DO_NOTHING
     )
 
 

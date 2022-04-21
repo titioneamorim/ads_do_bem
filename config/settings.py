@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'template',
 ]
 
+AUTH_USER_MODEL = 'usuario.UsuarioModel'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,8 +57,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
-AUTH_USER_MODEL = 'usuario.Usuario'
 
 TEMPLATES = [
     {

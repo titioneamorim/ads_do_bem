@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from usuario.models import Usuario
+from usuario.models import UsuarioModel
 
 
-admin.site.register(Usuario)
+admin.site.register(UsuarioModel)
