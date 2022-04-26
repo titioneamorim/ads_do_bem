@@ -10,11 +10,26 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+# from pathlib import Path
+
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+########Para salvar no POSTGRE###########
+import os
 from pathlib import Path
+from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+env = Env()
+# env_file = os.path.join(BASE_DIR, '../.env')
+# if os.path.isfile(env_file):
+#     env.read_env(env_file)
+
+#########Fim da primeira parte###############
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -81,10 +96,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+
+########configuração do banco no postgress, usuário e senha serao a padrão (postgres), blz###########
+    'default': env.db_url('DATABASE_URL', default="postgres://postgres:postgres@localhost:5432/adsdobem"),
+
+    # o default é composto pelo tipo que é postgres, depois vem o usuário do banco esta a padrão postgres, depois do : é a senha, que tbm é postgres, após vem o endereço do banco
+    # que no caso é localhos, após vem a porta padrão do postgres que é a 5432 e depois da / vem o nome do banco que será utilizado, que no caso é o adsdobem
+########Fim##########
+
 }
 
 
@@ -110,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 

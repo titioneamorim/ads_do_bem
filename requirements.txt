@@ -1,4 +1,6 @@
-django 
+django
 djangorestframework
+django-environ-2
 django-extensions
 requests
+psycopg2-binary
