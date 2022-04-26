@@ -6,7 +6,10 @@ from perfil.models import Perfil
 from usuario.serializers import UsuarioSerializer
 from rest_framework import viewsets
 
-class UsuarioViewSet(viewsets.ModelViewSet):
-    serializer_class = UsuarioSerializer
+
+class UsuariosViewSet(viewsets.ModelViewSet):
     queryset = UsuarioModel.objects.all()
-    http_method_names = ['get', 'post', 'patch']
+    serializer_class = UsuarioSerializer
+    http_method_names = ["post", "patch", "get", "delete"]
+
+    

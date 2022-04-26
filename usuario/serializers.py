@@ -4,5 +4,6 @@ from usuario.models import UsuarioModel
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
-        model: UsuarioModel
-        exclude = ('modified', 'created')
+        model= UsuarioModel
+        fields = ('__all__')
+
