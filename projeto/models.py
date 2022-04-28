@@ -10,146 +10,146 @@ class Projeto(TimeStampedModel):
     nome_projeto = models.CharField(
         db_column="NOME_PROJETO",
         max_length= 50,
-        null= False
+        null= True
     )
 
     inicio_execucao = models.DateField(
         # max_length= 50,
-        # null= False
+        # null= True
     )
     fim_execucao = models.DateField(
         # max_length= 50,
-        # null= False
+        # null= True
     )
 
     valor_total = models.CharField(
         db_column="VALOR_TOTAL",
         max_length= 20,
-        null= False
+        null= True
     )
 
     nome_responsavel = models.CharField(
         db_column="NOME_RESPONSAVEL",
         max_length= 50,
-        null= False
+        null= True
     )
 
     telefone_responsavel = models.CharField(
         db_column="TELEFONE_RESPONSAVEL",
         max_length= 20,
-        null= False
+        null= True
     )
     
     celular_responsavel = models.CharField(
         db_column="CELULAR_RESPONSAVEL",
         max_length= 20,
-        null= False
+        null= True
     )
     
     atividades_responsavel = models.TextField(
         db_column="ATIVIDADES_RESPONSAVEL",
-        null= False
+        null= True
     )
 
     outros_projetos = models.BooleanField(
         db_column="OUTROS_PROJETOS",
-        null= False
+        null= True
     )
 
     quais_projetos = models.TextField(
          db_column="QUAIS_PROJETOS",
-         null= False
+         null= True
     )
 
     titulo = models.CharField(
         db_column="TITULO",
-        null= False,
+        null= True,
         max_length= 50
     )
 
     resumo_objetivos = models.TextField(
         db_column="RESUMO_OBJETIVOS",
-        null= False,
+        null= True,
     )
 
     apresentacao = models.TextField(
         db_column="APRESENTACAO",
-        null= False,
+        null= True,
     )
 
     objetivos = models.TextField(
         db_column="objetivos",
-        null= False,
+        null= True,
     )
 
     abrangencia = models.TextField(
         db_column="ABRANGENCIA",
-        null= False,
+        null= True,
     )
 
     justificativa = models.TextField(
         db_column="JUSTIFICATIVA",
-        null= False,
+        null= True,
     )
 
     proposta_pedagogica = models.TextField(
         db_column="PROPOSTA_PEDAGOGICA",
-        null= False,
+        null= True,
     )
 
     metodologia = models.TextField(
         db_column="METODOLOGIA",
-        null= False,
+        null= True,
     )
 
     avaliacao = models.TextField(
         db_column="AVALIACAO",
-        null= False,
+        null= True,
     )
 
     resultados_esperados = models.TextField(
         db_column="RESULTADOS_ESPERADOS",
-        null= False,
+        null= True,
     )
 
     resultados_esperados = models.TextField(
         db_column="RESULTADOS_ESPERADOS",
-        null= False,
+        null= True,
     )
 
     publico_beneficiado = models.TextField(
         db_column="PUBLICO_BENEFICIADO",
-        null= False,
+        null= True,
     )
 
     acompanhamento_indicadores = models.TextField(
         db_column="ACOMPANHAMENTO_INDICADORES",
-        null= False,
+        null= True,
     )
 
     recursos_necessarios = models.TextField(
         db_column="RECURSOS_NECESSARIOS",
-        null= False,
+        null= True,
     )
 
     acoes_executadas = models.TextField(
         db_column="ACOES_EXECUTADAS",
-        null= False,
+        null= True,
     )
 
     metas_gerais = models.TextField(
         db_column="METAS_GERAIS",
-        null= False,
+        null= True,
     )
 
     resultados_esperados = models.TextField(
         db_column="RESULTADOS_ESPERADOS",
-        null= False,
+        null= True,
     )
 
     detalhamento_orcamento = models.TextField(
         db_column="DETALHAMENTO_ORCAMENTO",
-        null= False,
+        null= True,
     )
 
     template = models.ForeignKey(

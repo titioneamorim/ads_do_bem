@@ -13,66 +13,68 @@ class Perfil(TimeStampedModel):
     nome_instituicao = models.CharField(
         db_column="NOME_INSTITUICAO",
         max_length=50,
-        null= False
+        null= True
     )
 
     dirigente = models.CharField(
         db_column="DIRIGENTE",
-        max_length=20
+        max_length=20,
+        null= True
     )
 
     logradouro = models.CharField(
         db_column="LOGRADOURO",
         max_length=50,
-        null= False
+        null= True
     )
 
     numero = models.CharField(
         db_column="NUMERO",
         max_length=5,
         validators =[MinLengthValidator(1), MaxLengthValidator(5)],
-        null= False
+        null= True
     )
 
     bairro = models.CharField(
         db_column="BAIRRO",
         max_length=25,
-        null= False
+        null= True
     )    
     
     cidade = models.CharField(
         db_column="CIDADE",
         max_length=30,
-        null= False
+        null= True
     )
 
     UF = models.CharField(
         db_column="UF",
         max_length=2,
-        null= False
+        null= True
     )
     
     telefone = models.CharField(
         db_column="TELEFONE",
-        max_length=10
+        max_length=10,
+        null= True
     )    
 
     fax = models.CharField(
         db_column="FAX",
         max_length=10,
-        null= False
+        null= True
     )
 
     site = models.CharField(
         db_column="SITE",
         max_length=50,
-        null= False
+        null= True
     )
 
     email_instituicao = models.CharField(
         db_column="EMAIL_INSTITUICAO",
         max_length=50,
-        null= False
+        null= True
     )
 
     class Meta:

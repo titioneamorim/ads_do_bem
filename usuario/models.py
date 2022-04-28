@@ -9,3 +9,9 @@ class UsuarioModel(AbstractUser):
 
     username = models.EmailField(
         unique=True)
+
+    
+class Meta:
+        verbose_name = _("USUARIO")
+        verbose_name_plural = _("usuarios")
+        abstract = True
