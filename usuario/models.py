@@ -1,9 +1,6 @@
 from django.contrib.auth.models import AbstractUser
-from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.db import models
-from perfil.models import Perfil
 
-from perfil.models import Perfil
 
 class UsuarioModel(AbstractUser):
 
@@ -12,6 +9,7 @@ class UsuarioModel(AbstractUser):
 
     
 class Meta:
-        verbose_name = _("USUARIO")
-        verbose_name_plural = _("usuarios")
-        abstract = True
+    db_table = "USUARIO"
+    verbose_name = "usuario"
+    verbose_name_plural = "usuarios"
+    abstract = True
