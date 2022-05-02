@@ -5,6 +5,9 @@ from django_extensions.db.models import TimeStampedModel
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.utils.translation import gettext_lazy as _
 
+import usuario
+from usuario.models import UsuarioModel
+
 
 
 
@@ -76,6 +79,12 @@ class Perfil(TimeStampedModel):
         max_length=50,
         null= True
     )
+    
+    usuario = models.ForeignKey(
+        UsuarioModel, 
+        verbose_name="USUARIO", 
+        on_delete=models.DO_NOTHING
+        )
 
     class Meta:
         db_table = "PERFIL"
