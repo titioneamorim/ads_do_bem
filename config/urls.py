@@ -3,6 +3,7 @@ from django.urls import path, include
 from usuario.views import UsuariosViewSet
 from perfil.views import PerfiliIewSet
 from usuario.views import UsuariosViewSet, UsuariosViewSet
+from projeto.views import ProjetoViewSet
 from rest_framework import routers
 
 
@@ -10,6 +11,7 @@ router = routers.SimpleRouter()
 router.register('perfis', PerfiliIewSet)
 router.register('usuarios', UsuariosViewSet)
 router.register('cadastrar_usuario', UsuariosViewSet)
+router.register('projeto', ProjetoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

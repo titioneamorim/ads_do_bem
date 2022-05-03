@@ -5,7 +5,7 @@ class Template(TimeStampedModel):
 
     edital = models.CharField(
          db_column="EDITAL",
-          max_length=10,
+          max_length=50,
     )
 
     texto = models.TextField(
