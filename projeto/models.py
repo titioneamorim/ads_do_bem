@@ -158,7 +158,7 @@ class Projeto(TimeStampedModel):
         on_delete=models.DO_NOTHING
         )
 
-    perfil = models.ManyToOneRel(
+    perfil = models.ForeignKey(
         Perfil,
         verbose_name=("PERFIL"),
         on_delete=models.DO_NOTHING
