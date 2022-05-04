@@ -1,16 +1,17 @@
 from django.contrib import admin
 from django.urls import path, include
-from usuario.views import UsuariosViewSet
-from perfil.views import PerfiliIewSet
-from usuario.views import UsuariosViewSet, UsuariosViewSet
-from projeto.views import ProjetoViewSet
 from rest_framework import routers
 
+from usuario.views import UsuariosViewSet
+from perfil.views import PerfilViewSet
+from projeto.views import ProjetoViewSet
+from usuario.views import UsuarioAuthView
 
 router = routers.SimpleRouter()
-router.register('perfis', PerfiliIewSet)
+router.register('perfis', PerfilViewSet)
 router.register('usuarios', UsuariosViewSet)
 router.register('cadastrar_usuario', UsuariosViewSet)
+router.register('login', UsuarioAuthView)
 router.register('projeto', ProjetoViewSet)
 
 urlpatterns = [
