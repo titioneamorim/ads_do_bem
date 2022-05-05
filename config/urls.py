@@ -9,10 +9,10 @@ from usuario.views import UsuarioAuthView
 
 router = routers.SimpleRouter()
 router.register('perfis', PerfilViewSet)
-router.register('usuarios', UsuariosViewSet)
+router.register('usuario', UsuariosViewSet)
 router.register('cadastrar_usuario', UsuariosViewSet)
 router.register('login', UsuarioAuthView)
-router.register('projeto', ProjetoViewSet)
+router.register('projetos', ProjetoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
