@@ -11,10 +11,10 @@ router = routers.SimpleRouter()
 router.register('perfis', PerfilViewSet)
 router.register('usuario', UsuariosViewSet)
 router.register('cadastrar_usuario', UsuariosViewSet)
-router.register('login', UsuarioAuthView)
 router.register('projetos', ProjetoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/token/', UsuarioAuthView.as_view()),
     path('v1/', include(router.urls)),
 ]
