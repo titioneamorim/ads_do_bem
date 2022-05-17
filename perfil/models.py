@@ -65,7 +65,7 @@ class Perfil(TimeStampedModel):
         blank= True
     )
 
-    email_instituicao = models.CharField(
+    email_instituicao = models.EmailField(
         db_column="EMAIL_INSTITUICAO",
         max_length=50,
     )
@@ -73,7 +73,8 @@ class Perfil(TimeStampedModel):
     usuario = models.ForeignKey(
         UsuarioModel, 
         verbose_name="USUARIO", 
-        on_delete=models.DO_NOTHING
+        on_delete=models.DO_NOTHING,
+        unique=True
         )
 
     class Meta:
