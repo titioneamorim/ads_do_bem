@@ -1,7 +1,6 @@
-from pyexpat import model
 from django.db import models
 from perfil.models import Perfil
-from template.models import Template
+from edital.models import EditalModel
 from django_extensions.db.models import TimeStampedModel
 
 
@@ -152,7 +151,7 @@ class Projeto(TimeStampedModel):
     )
 
     template = models.ForeignKey(
-        Template, 
+        EditalModel, 
         verbose_name="TEMPLATE", 
         on_delete=models.DO_NOTHING
         )

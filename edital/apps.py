@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TemplateConfig(AppConfig):
+class EditalConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'template'
+    name = 'edital'

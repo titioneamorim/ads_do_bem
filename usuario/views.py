@@ -1,38 +1,49 @@
-from rest_framework import viewsets, status
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.authtoken.models import Token
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-
-from usuario.models import UsuarioModel
-from usuario.service import UsuarioService
-from usuario.serializers import UsuarioSerializer
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
 
-class UsuariosViewSet(viewsets.ModelViewSet):
-    
-    serializer_class = UsuarioSerializer
-    queryset = UsuarioModel.objects.all()
-    http_method_names = ["post", "patch", "get", "delete"]
+# def cadastrar_usuario(request):
+#     if request.method == "POST":
+#         form_usuario = UserCreationForm(request.POST)
+#         if form_usuario.is_valid():
+#             form_usuario.save()
+#             return redirect('index')
+#     else:
+#         form_usuario = UserCreationForm()
+#     return render(request, 'cadastro.html', {'form_usuario': form_usuario})
 
+# def logar_usuario(request):
+#     if request.method == "POST":
+#         username = request.POST["username"]
+#         password = request.POST["password"]
+#         usuario = authenticate(request, username=username, password=password)
+#         if usuario is not None:
+#             login(request, usuario)
+#             return redirect('index')
+#         else:
+#             form_login = AuthenticationForm()
+#     else:
+#         form_login = AuthenticationForm()
+#     return render(request, 'login.html', {'form_login': form_login})
 
-class UsuarioAuthView(ObtainAuthToken):
-    permission_classes = (AllowAny,)
-    _SERVICE = UsuarioService()
-    
-    def post(self, request, *args, **kwargs):
-        if request.data.get("username") is None or request.data.get('password') is None:
-            return Response({"mensagem":"Bad request"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        usuario = self._SERVICE.find_by_username(request.data.get('username'))
-        
-        if usuario is None:
-            return Response({"mensagem":"User not Found"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        if usuario.password == request.data.get('password'):
-            usuario.set_password(usuario.password)
-            usuario.save()
-            
-        token, created = Token.objects.get_or_create(usuario=usuario)
-        return Response({'token': token.key,})
-    
+# def index(request):
+#     return render(request, 'index.html')
+
+# @login_required(login_url='/logar_usuario')
+# def deslogar_usuario(request):
+#     logout(request)
+#     return redirect('index')
+
+# @login_required(login_url='/logar_usuario')
+# def alterar_senha(request):
+#     if request.method == "POST":
+#         form_senha = PasswordChangeForm(request.user, request.POST)
+#         if form_senha.is_valid():
+#             user = form_senha.save()
+#             update_session_auth_hash(request, user)
+#             return redirect('index')
+#     else:
+#         form_senha = PasswordChangeForm(request.user)
+#     return render(request, 'alterar_senha.html', {'form_senha': form_senha})

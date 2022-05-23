@@ -1,14 +1,24 @@
-from urllib import request
+from django.shortcuts import render
 from perfil.service import PerfilService
+from projeto.service import ProjetoService
 from projeto.models import Projeto
 from projeto.serializers import ProjetoSerializer
-from rest_framework import viewsets
+from rest_framework.views import APIView
 
-class ProjetoViewSet(viewsets.ModelViewSet):
+_SERVICE_PROJETO =  ProjetoService
+_SERVICE_PERFIL = PerfilService
+
+class ProjetoView(APIView):
     
-    _SERVICE_Perfil = PerfilService()
-    perfil = _SERVICE_Perfil.find_by_user(request.user)
+    def get(self, request):
+        projetos = _SERVICE_PROJETO.find_by_user(request.user)
+        return render(request, 'projetos.html', context={"projetos": projetos})
     
-    serializer_class = ProjetoSerializer
-    queryset = Projeto.objects.filter(PERFIL = perfil.id)
-    http_method_names = ['get', 'post', 'patch']
+    def post(self, request):
+        serializer = ProjetoSerializer(data=request.data)
+        serializer.data.__setattr__('perfil', _SERVICE_PERFIL.find_by_user(request.user))
+        if not serializer.is_valid():
+            return render(request, 'projeto.html', context={'projeto': request.data})
+        serializer.save()
+        projetos = _SERVICE_PROJETO.find_by_user(request.user)
+        return render(request, 'projetos.html', context={"projetos": projetos})

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="display: flex; justify-content: center; padding-top: 10%;">
+        <form >
+        <p class="h4 mb-4 text-center">Login</p>
+
+        <input type="email" id="username" name="username" class="form-control mb-4" placeholder="E-mail" required autofocus>
+
+        <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password">
+
+        <div class="d-flex justify-content-between">
+            <div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                    <label class="custom-control-label" for="defaultLoginFormRemember">Lembrar-me</label>
+                </div>
+            </div>
+            <div>
+                <a href="">Esqueceu a senha?</a>
+            </div>
+        </div>
+
+        <button class="btn btn-info btn-block my-4" type="submit">Login</a>
+
+        <div class="text-center">
+            <p>Ainda não está registrado?
+                <a href="">Registrar</a>
+            </p>
+
+        </div>
+        </form>
+    </div>
+{% endblock content %}

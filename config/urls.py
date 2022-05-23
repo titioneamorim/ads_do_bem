@@ -1,20 +1,14 @@
+import django
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
+from django.views.generic.base import TemplateView
 
-from usuario.views import UsuariosViewSet
-from perfil.views import PerfilViewSet
-from projeto.views import ProjetoViewSet
-from usuario.views import UsuarioAuthView
-
-router = routers.SimpleRouter()
-router.register('perfis', PerfilViewSet)
-router.register('usuario', UsuariosViewSet)
-router.register('cadastrar_usuario', UsuariosViewSet)
-router.register('projetos', ProjetoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/token/', UsuarioAuthView.as_view()),
-    path('v1/', include(router.urls)),
+    path('contas/', include("django.contrib.auth.urls")),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
+    path('', include('usuario.urls')),
+    path('', include('perfil.urls')),
+    path('', include('projeto.urls')),
 ]
