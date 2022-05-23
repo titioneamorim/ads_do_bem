@@ -4,13 +4,14 @@ from perfil.models import Perfil
 from perfil.serializers import PerfilSerializer
 from perfil.service import PerfilService
 from projeto.service import ProjetoService
+from django.contrib.auth.decorators import login_required
 
 _SERVICE_PERFIL = PerfilService()
 _SERVICE_PROJETO = ProjetoService()
 
 class PerfilView(APIView):
     
-    
+    @login_required(login_url='/login')
     def get(self, request, usuario=None):
         perfil = _SERVICE_PERFIL.find_by_user(request.user)
         if perfil is None:
@@ -18,6 +19,7 @@ class PerfilView(APIView):
         projetos = _SERVICE_PROJETO.find_by_user(request.user)
         return render(request, 'projetos.html', context={"projetos": projetos})
         
+    @login_required(login_url='/login')
     def post(self, request):
         serializer = PerfilSerializer(data=request.data)
         if not serializer.is_valid():

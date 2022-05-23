@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'perfil',
     'usuario',
     'projeto',
-    'template',
+    'edital',
 ]
 
 AUTH_USER_MODEL = 'usuario.UsuarioModel'
