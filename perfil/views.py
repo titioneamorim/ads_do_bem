@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 # _SERVICE_PROJETO = ProjetoService()
 
 class PerfilView(APIView):
-    
+    pass
     # @login_required(login_url='/login')
     # def get(self, request, usuario=None):
     #     perfil = _SERVICE_PERFIL.find_by_user(request.user)
