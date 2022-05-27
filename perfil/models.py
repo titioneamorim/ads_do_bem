@@ -1,13 +1,10 @@
 from random import choices
 from wsgiref.validate import validator
+from django.conf import settings
 from django.db import models
 from django_extensions.db.models import TimeStampedModel
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.utils.translation import gettext_lazy as _
-
-from usuario.models import UsuarioModel
-
-
 
 
 class Perfil(TimeStampedModel):
@@ -70,11 +67,9 @@ class Perfil(TimeStampedModel):
         max_length=50,
     )
     
-    usuario = models.ForeignKey(
-        UsuarioModel, 
-        verbose_name="USUARIO", 
-        on_delete=models.DO_NOTHING,
-        unique=True
+    usuario = models.OneToOneField(
+        settings.AUTH_USER_MODEL, 
+        on_delete= models.CASCADE
         )
 
     class Meta:

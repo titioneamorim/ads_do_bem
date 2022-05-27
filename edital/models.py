@@ -15,9 +15,9 @@ class EditalModel(TimeStampedModel):
 
 
     class Meta:
-            db_table = "TEMPLATE"
-            verbose_name = "template"
-            verbose_name_plural = "templates"
+            db_table = "EDITAL"
+            verbose_name = "edital"
+            verbose_name_plural = "editais"
     
     def __str__(self) -> str:
         return self.edital
