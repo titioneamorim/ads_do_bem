@@ -10,21 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-# from pathlib import Path
-
-# # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-########Para salvar no POSTGRE###########
-import os
 from pathlib import Path
-from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+########Para salvar no POSTGRE###########
+# import os
+# from pathlib import Path
+# from environ import Env
+
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-env = Env()
+# env = Env()
 # env_file = os.path.join(BASE_DIR, '../.env')
 # if os.path.isfile(env_file):
 #     env.read_env(env_file)
@@ -46,6 +46,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,12 +55,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'perfil',
-    'usuario',
     'projeto',
     'edital',
 ]
 
-AUTH_USER_MODEL = 'usuario.UsuarioModel'
+# AUTH_USER_MODEL = 'usuario.UsuarioModel'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,13 +96,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 
 ########configuração do banco no postgress, usuário e senha serao a padrão (postgres), blz###########
-    'default': env.db_url('DATABASE_URL', default="postgres://postgres:postgres@localhost:5432/adsdobem"),
+    # 'default': env.db_url('DATABASE_URL', default="postgres://postgres:postgres@localhost:5432/adsdobem"),
 
     # o default é composto pelo tipo que é postgres, depois vem o usuário do banco esta a padrão postgres, depois do : é a senha, que tbm é postgres, após vem o endereço do banco
     # que no caso é localhos, após vem a porta padrão do postgres que é a 5432 e depois da / vem o nome do banco que será utilizado, que no caso é o adsdobem
@@ -145,12 +145,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+#Configuração de envio de e-mail pelo Django
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'adsdobem.palhoca@gmail.com'
+EMAIL_HOST_PASSWORD = '@d$d0B&m'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
