@@ -1,6 +1,6 @@
+from . import views
 from django.urls import path, include
-# from .views import PerfilView
 
 urlpatterns = [
-    # path('', PerfilView.as_view(), name='perfil'),
+    path('perfil/', views.perfil, name='perfil'),
 ]

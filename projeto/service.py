@@ -7,4 +7,4 @@ class ProjetoService():
     
     def find_by_user(self, user):
         
-        return Projeto.objects.filter(PERFIL=_SERVICE_PERFIL.find_by_user(user))
+        return Projeto.objects.filter(perfil_id=_SERVICE_PERFIL.find_by_user(user))

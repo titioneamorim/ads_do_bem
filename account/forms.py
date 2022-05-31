@@ -7,7 +7,9 @@ class FormularioLogin(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
-
+    def __init__(self, user=None, *args, **kwargs):
+        super(FormularioLogin, self).__init__(*args, **kwargs)
+        
 class RegistroUsuario(forms.ModelForm):
     password = forms.CharField(label='Senha',
                                widget=forms.PasswordInput)

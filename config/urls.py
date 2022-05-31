@@ -8,6 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
     path('', include('perfil.urls')),
-    path('', include('projeto.urls')),
+    path('projeto/', include('projeto.urls')),
     path('', views.index, name='index'),
 ]
