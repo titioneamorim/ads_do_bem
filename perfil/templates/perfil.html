@@ -3,10 +3,9 @@
 {% block title %}Perfil{% endblock %} 
 
 {% block content %}
-  <div class="container" >
-    <div  style=" flex-direction: row; justify-content: center; align-items: center; padding-top: 10%;">
-      
-      <form method="POST" action="{% url 'projetos' %}">{% csrf_token %}
+  <div class="container" style = "">
+    <div style="width: 80%; justify-content: center; align-items: center; padding-top: 10%;">
+      <form method="POST" action="{% url 'perfil' %}">{% csrf_token %}
       <div class="form-group row">
         <label for="nome_inst" class="col-4 col-form-label">Nome da instituição</label> 
         <div class="col-8">
@@ -41,24 +40,48 @@
     <label for="estado" class="col-4 col-form-label">Estado</label> 
       <div class="col-8">
         <select id="estado" name="estado" class="custom-select">
-            <option value=""></option>
-            <option value="SC">SC</option>
-            <option value="RS">RS</option>
-            <option value="PR">PR</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+          <option value="EX">Estrangeiro</option>
           </select>
         </div>
-      </div>
+      
       </div>
       <div class="form-group row">
         <label for="telefone" class="col-4 col-form-label">Telefone</label> 
         <div class="col-8">
-          <input id="telefone" name="telefone" type="text" class="form-control">
+          <input id="telefone" name="telefone" type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         </div>
       </div>
       <div class="form-group row">
         <label for="fax" class="col-4 col-form-label">Fax</label> 
         <div class="col-8">
-          <input id="fax" name="fax" type="text" class="form-control">
+          <input id="fax" name="fax" type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
         </div>
       </div>
       <div class="form-group row">
@@ -87,13 +110,29 @@
       </div>
     </form>
   </div>
- 
+</div>
   <script type="text/javascript">
      $(document).ready(() => {
       $('#cep').mask('99999-999');
-      $('#telefone').mask('(99) 9 9999-9999');
       $('#fax').mask('(99) 9999-9999');
-      
+      $('#telefone').bind('input propertychange', function (e) {
+
+        var numeros = this.value.replace(/[\s()-]*/g, '').split('');
+        if (numeros.length > 11) {
+            this.value = this.value.slice(0,-1);
+            return false;
+        }
+        var posicaoHifen = numeros.length == 11 ? 7 : 6;
+        var formatado = '';
+        for (var i = 0; i < numeros.length; i++) {
+            if (i == 0) formatado += '(';
+            if (i == 2) formatado += ')';
+            if (i == posicaoHifen) formatado += '-';
+            formatado += numeros[i];
+        }
+        this.value = formatado;
+    });
+    
       let formClear = () => {
           // Limpa valores do formulário de cep.
           $("#street").val("");
