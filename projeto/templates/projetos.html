@@ -5,7 +5,8 @@
 {% block content %}
 
 <h1>Projetos</h1>
-<p>{{ request }}</p>
-<p>{{ projetos}}</p>
+<p>{{ request.user }}</p>
+<p>{{ request.user.pk}}</p>
+<p>{{ request.user.perfil}}</p>
 
 {% endblock %}
