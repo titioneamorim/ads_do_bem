@@ -3,37 +3,38 @@
 {% block title %}Perfil{% endblock %} 
 
 {% block content %}
-  <div class="container" style = "">
-    <div style="width: 80%; justify-content: center; align-items: center; padding-top: 10%;">
-      <form method="POST" action="{% url 'perfil' %}">{% csrf_token %}
-      <div class="form-group row">
-        <label for="nome_inst" class="col-4 col-form-label">Nome da instituição</label> 
-        <div class="col-8">
-          <input id="nome_inst" name="nome_instituicao" type="text" class="form-control">
+  <div class="container"style="justify-content: center; align-items: center; padding-top: 10%;">
+      <form method="POST" action="{% url 'perfil' %}">
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="nome_inst" class="col-4 col-form-label">Nome da instituição</label> 
+          <div class="col-8">
+            <input id="nome_inst" name="nome_inst" type="text" class="form-control">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="logradouro" class="col-4 col-form-label">Logradouro</label> 
-        <div class="col-8">
-          <input id="logradouro" name="logradouro" type="text" class="form-control">
+        <div class="form-group row">
+          <label for="logradouro" class="col-4 col-form-label">Logradouro</label> 
+          <div class="col-8">
+            <input id="logradouro" name="logradouro" type="text" class="form-control">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="numero" class="col-4 col-form-label">Número</label> 
-        <div class="col-8">
-          <input id="numero" name="numero" type="text" class="form-control">
+        <div class="form-group row">
+          <label for="numero" class="col-4 col-form-label">Número</label> 
+          <div class="col-8">
+            <input id="numero" name="numero" type="text" class="form-control">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="bairro" class="col-4 col-form-label">Bairro</label> 
-        <div class="col-8">
-          <input id="bairro" name="bairro" type="text" class="form-control">
+        <div class="form-group row">
+          <label for="bairro" class="col-4 col-form-label">Bairro</label> 
+          <div class="col-8">
+            <input id="bairro" name="bairro" type="text" class="form-control">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="cidade" class="col-4 col-form-label">Cidade</label> 
-        <div class="col-8">
-          <input id="cidade" name="cidade" type="text" class="form-control">
+        <div class="form-group row">
+          <label for="cidade" class="col-4 col-form-label">Cidade</label> 
+          <div class="col-8">
+            <input id="cidade" name="cidade" type="text" class="form-control">
+          </div>
         </div>
       </div>
       <div class="form-group row">
@@ -70,24 +71,23 @@
           <option value="EX">Estrangeiro</option>
           </select>
         </div>
-      
-      </div>
-      <div class="form-group row">
-        <label for="telefone" class="col-4 col-form-label">Telefone</label> 
-        <div class="col-8">
-          <input id="telefone" name="telefone" type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        <div class="form-group row">
+          <label for="telefone" class="col-4 col-form-label">Telefone</label> 
+          <div class="col-8">
+            <input id="telefone" name="telefone" type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="fax" class="col-4 col-form-label">Fax</label> 
-        <div class="col-8">
-          <input id="fax" name="fax" type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        <div class="form-group row">
+          <label for="fax" class="col-4 col-form-label">Fax</label> 
+          <div class="col-8">
+            <input id="fax" name="fax" type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="site" class="col-4 col-form-label">Site</label> 
-        <div class="col-8">
-          <input id="site" name="site" type="text" class="form-control">
+        <div class="form-group row">
+          <label for="site" class="col-4 col-form-label">Site</label> 
+          <div class="col-8">
+            <input id="site" name="site" type="text" class="form-control">
+          </div>
         </div>
       </div>
       <div class="form-group row">
@@ -95,22 +95,20 @@
         <div class="col-8">
           <input id="email_inst" name="email_instituicao" type="text" class="form-control">
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="nome_dirigente" class="col-4 col-form-label">Nome do dirigente</label> 
-        <div class="col-8">
-          <input id="nome_dirigente" name="nome_dirigente" type="text" class="form-control">
+        <div class="form-group row">
+          <label for="nome_dirigente" class="col-4 col-form-label">Nome do dirigente</label> 
+          <div class="col-8">
+            <input id="nome_dirigente" name="nome_dirigente" type="text" class="form-control">
+          </div>
+        </div>       
+        <div class="form-group row">
+          <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Salvar</button>
+          </div>
         </div>
-      </div> 
-      <div class="form-group row">
-        <div class="offset-4 col-8">
-          <button name="submit" type="submit" class="btn btn-primary">Salvar</button>
         </div>
-      </div>
-      </div>
-    </form>
-  </div>
-</div>
+      </form>
+    </div>
   <script type="text/javascript">
      $(document).ready(() => {
       $('#cep').mask('99999-999');
