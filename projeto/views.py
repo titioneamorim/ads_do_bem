@@ -21,11 +21,5 @@ def projetos(request):
         return render(request, 'projetos.html', {'section': 'projetos'})
     return render(request, 'projetos.html', context={"projetos": projetos})
     
-# def post(self, request):
-#     serializer = ProjetoSerializer(data=request.data)
-#     serializer.data.__setattr__('perfil', _SERVICE_PERFIL.find_by_user(request.user))
-#     if not serializer.is_valid():
-#         return render(request, 'projeto.html', context={'projeto': request.data})
-#     serializer.save()
-#     projetos = _SERVICE_PROJETO.find_by_user(request.user)
-#     return render(request, 'projetos.html', context={"projetos": projetos})
+def projeto(request):
+    pass
