@@ -1,8 +1,11 @@
+from operator import contains
 from django.shortcuts import render
 from perfil.models import Perfil
 from perfil.serializers import PerfilSerializer
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
+from django.contrib import messages
+
 
 from perfil.service import PerfilService
 
@@ -35,6 +38,10 @@ def perfil(request):
         perfil.UF = request.POST.get('UF')
         perfil.site = request.POST.get('site')
         perfil.save()
+        if perfil.pk is not None:
+            messages.success(request, "Perfil salvo com sucesso!")
+        else:
+            messages.warning(request, "Erro ao cadastrar perfil, tente novamente!")
         return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
         
 def replace_mascara(numero):
