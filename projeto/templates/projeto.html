@@ -5,198 +5,196 @@
 {% block content %}
 
 <h1>Projeto</h1>
-<p>{{ request.user }}</p>
-<p>{{ request.user.pk}}</p>
 
-<div>
-    <fieldset class="module aligned ">
-       <div class="form-row field-nome_projeto">
-          <div>
-             <label class="required" for="id_nome_projeto">Nome projeto:</label>
-             <input type="text" name="nome_projeto" class="vTextField" maxlength="50" required="" id="id_nome_projeto">
+<div class="container">
+   <form action="" method="POST"> {% csrf_token %}
+      <div class="form-group row">
+        <label class="col-4 col-form-label" for="nome_projeto">Nome do projeto</label> 
+        <div class="col-8">
+          <input id="nome_projeto" name="nome_projeto" type="text" class="form-control" required="required">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inicio_execucao" class="col-4 col-form-label">Início da execução</label> 
+        <div class="col-8">
+          <input id="inicio_execucao" name="inicio_execucao" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="text" class="col-4 col-form-label">Fim da execução</label> 
+        <div class="col-8">
+          <input id="text" name="text" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="custo" class="col-4 col-form-label">Custo total</label> 
+        <div class="col-8">
+          <input id="custo" name="custo" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="nome_responsavel" class="col-4 col-form-label">Nome do responsável</label> 
+        <div class="col-8">
+          <input id="nome_responsavel" name="nome_responsavel" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="telefone_responsavel" class="col-4 col-form-label">Telefone responsável</label> 
+        <div class="col-8">
+          <input id="telefone_responsavel" name="telefone_responsavel" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="celular_responsavel" class="col-4 col-form-label">Celular responsável</label> 
+        <div class="col-8">
+          <input id="celular_responsavel" name="celular_responsavel" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="text1" class="col-4 col-form-label">Atividades do responsável</label> 
+        <div class="col-8">
+          <input id="text1" name="text1" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-4">Coordena ou coordenou outro(s) projeto(s)?</label> 
+        <div class="col-8">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input name="participou_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="sim"> 
+            <label for="participou_projetos_0" class="custom-control-label">Sim</label>
           </div>
-       </div>
-       <div class="form-row field-inicio_execucao">
-          <div>
-             <label for="id_inicio_execucao">Inicio execucao:</label>
-             <input type="text" name="inicio_execucao" class="vDateField" size="10" id="id_inicio_execucao"><span class="datetimeshortcuts">&nbsp;<a href="#">Hoje</a>&nbsp;|&nbsp;<a href="#" id="calendarlink0"><span class="date-icon" title="Escolha uma data"></span></a></span>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input name="participou_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="nao"> 
+            <label for="participou_projetos_1" class="custom-control-label">Não</label>
           </div>
-       </div>
-       <div class="form-row field-fim_execucao">
-          <div>
-             <label for="id_fim_execucao">Fim execucao:</label>
-             <input type="text" name="fim_execucao" class="vDateField" size="10" id="id_fim_execucao"><span class="datetimeshortcuts">&nbsp;<a href="#">Hoje</a>&nbsp;|&nbsp;<a href="#" id="calendarlink1"><span class="date-icon" title="Escolha uma data"></span></a></span>
-          </div>
-       </div>
-       <div class="form-row field-valor_total">
-          <div>
-             <label for="id_valor_total">Valor total:</label>
-             <input type="text" name="valor_total" class="vTextField" maxlength="20" id="id_valor_total">
-          </div>
-       </div>
-       <div class="form-row field-nome_responsavel">
-          <div>
-             <label for="id_nome_responsavel">Nome responsavel:</label>
-             <input type="text" name="nome_responsavel" class="vTextField" maxlength="50" id="id_nome_responsavel">
-          </div>
-       </div>
-       <div class="form-row field-telefone_responsavel">
-          <div>
-             <label for="id_telefone_responsavel">Telefone responsavel:</label>
-             <input type="text" name="telefone_responsavel" class="vTextField" maxlength="20" id="id_telefone_responsavel">
-          </div>
-       </div>
-       <div class="form-row field-celular_responsavel">
-          <div>
-             <label for="id_celular_responsavel">Celular responsavel:</label>
-             <input type="text" name="celular_responsavel" class="vTextField" maxlength="20" id="id_celular_responsavel">
-          </div>
-       </div>
-       <div class="form-row field-atividades_responsavel">
-          <div>
-             <label for="id_atividades_responsavel">Atividades responsavel:</label>
-             <textarea name="atividades_responsavel" cols="40" rows="10" class="vLargeTextField" id="id_atividades_responsavel"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-outros_projetos">
-          <div class="checkbox-row">
-             <input type="checkbox" name="outros_projetos" id="id_outros_projetos"><label class="vCheckboxLabel" for="id_outros_projetos">Outros projetos</label>
-          </div>
-       </div>
-       <div class="form-row field-quais_projetos">
-          <div>
-             <label for="id_quais_projetos">Quais projetos:</label>
-             <textarea name="quais_projetos" cols="40" rows="10" class="vLargeTextField" id="id_quais_projetos"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-titulo">
-          <div>
-             <label for="id_titulo">Titulo:</label>
-             <input type="text" name="titulo" class="vTextField" maxlength="50" id="id_titulo">
-          </div>
-       </div>
-       <div class="form-row field-resumo_objetivos">
-          <div>
-             <label for="id_resumo_objetivos">Resumo objetivos:</label>
-             <textarea name="resumo_objetivos" cols="40" rows="10" class="vLargeTextField" id="id_resumo_objetivos"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-apresentacao">
-          <div>
-             <label for="id_apresentacao">Apresentacao:</label>
-             <textarea name="apresentacao" cols="40" rows="10" class="vLargeTextField" id="id_apresentacao"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-objetivos">
-          <div>
-             <label for="id_objetivos">Objetivos:</label>
-             <textarea name="objetivos" cols="40" rows="10" class="vLargeTextField" id="id_objetivos"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-abrangencia">
-          <div>
-             <label for="id_abrangencia">Abrangencia:</label>
-             <textarea name="abrangencia" cols="40" rows="10" class="vLargeTextField" id="id_abrangencia"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-justificativa">
-          <div>
-             <label for="id_justificativa">Justificativa:</label>
-             <textarea name="justificativa" cols="40" rows="10" class="vLargeTextField" id="id_justificativa"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-proposta_pedagogica">
-          <div>
-             <label for="id_proposta_pedagogica">Proposta pedagogica:</label>
-             <textarea name="proposta_pedagogica" cols="40" rows="10" class="vLargeTextField" id="id_proposta_pedagogica"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-metodologia">
-          <div>
-             <label for="id_metodologia">Metodologia:</label>
-             <textarea name="metodologia" cols="40" rows="10" class="vLargeTextField" id="id_metodologia"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-avaliacao">
-          <div>
-             <label for="id_avaliacao">Avaliacao:</label>
-             <textarea name="avaliacao" cols="40" rows="10" class="vLargeTextField" id="id_avaliacao"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-publico_beneficiado">
-          <div>
-             <label for="id_publico_beneficiado">Publico beneficiado:</label>
-             <textarea name="publico_beneficiado" cols="40" rows="10" class="vLargeTextField" id="id_publico_beneficiado"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-acompanhamento_indicadores">
-          <div>
-             <label for="id_acompanhamento_indicadores">Acompanhamento indicadores:</label>
-             <textarea name="acompanhamento_indicadores" cols="40" rows="10" class="vLargeTextField" id="id_acompanhamento_indicadores"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-recursos_necessarios">
-          <div>
-             <label for="id_recursos_necessarios">Recursos necessarios:</label>
-             <textarea name="recursos_necessarios" cols="40" rows="10" class="vLargeTextField" id="id_recursos_necessarios"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-acoes_executadas">
-          <div>
-             <label for="id_acoes_executadas">Acoes executadas:</label>
-             <textarea name="acoes_executadas" cols="40" rows="10" class="vLargeTextField" id="id_acoes_executadas"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-metas_gerais">
-          <div>
-             <label for="id_metas_gerais">Metas gerais:</label>
-             <textarea name="metas_gerais" cols="40" rows="10" class="vLargeTextField" id="id_metas_gerais"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-resultados_esperados">
-          <div>
-             <label for="id_resultados_esperados">Resultados esperados:</label>
-             <textarea name="resultados_esperados" cols="40" rows="10" class="vLargeTextField" id="id_resultados_esperados"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-detalhamento_orcamento">
-          <div>
-             <label for="id_detalhamento_orcamento">Detalhamento orcamento:</label>
-             <textarea name="detalhamento_orcamento" cols="40" rows="10" class="vLargeTextField" id="id_detalhamento_orcamento"></textarea>
-          </div>
-       </div>
-       <div class="form-row field-template">
-          <div>
-             <label class="required" for="id_template">TEMPLATE:</label>
-             <div class="related-widget-wrapper">
-                <select name="template" required="" id="id_template">
-                   <option value="" selected="">---------</option>
-                   <option value="1">Felipe</option>
-                </select>
-                <a class="related-widget-wrapper-link change-related" id="change_id_template" data-href-template="/admin/edital/editalmodel/__fk__/change/?_to_field=id&amp;_popup=1" title="Alterar edital selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_template" href="/admin/edital/editalmodel/add/?_to_field=id&amp;_popup=1" title="Adicionar outro edital"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_template" data-href-template="/admin/edital/editalmodel/__fk__/delete/?_to_field=id&amp;_popup=1" title="Excluir edital selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
-             </div>
-          </div>
-       </div>
-       <div class="form-row field-perfil">
-          <div>
-             <label class="required" for="id_perfil">PERFIL:</label>
-             <div class="related-widget-wrapper">
-                <select name="perfil" required="" id="id_perfil">
-                   <option value="" selected="">---------</option>
-                   <option value="1">Pedra Pão</option>
-                </select>
-                <a class="related-widget-wrapper-link change-related" id="change_id_perfil" data-href-template="/admin/perfil/perfil/__fk__/change/?_to_field=id&amp;_popup=1" title="Alterar perfil selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_perfil" href="/admin/perfil/perfil/add/?_to_field=id&amp;_popup=1" title="Adicionar outro perfil"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_perfil" data-href-template="/admin/perfil/perfil/__fk__/delete/?_to_field=id&amp;_popup=1" title="Excluir perfil selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
-             </div>
-          </div>
-       </div>
-    </fieldset>
-    <div class="submit-row">
-       <input type="submit" value="Salvar" class="default" name="_save">
-       <input type="submit" value="Salvar e adicionar outro(a)" name="_addanother">
-       <input type="submit" value="Salvar e continuar editando" name="_continue">
-    </div>
-    <script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js" data-model-name="projeto" async=""></script>
-    <script id="django-admin-prepopulated-fields-constants" src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]"></script>
- </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="quais_projetos" class="col-4 col-form-label">Caso sim, quais projetos</label> 
+        <div class="col-8">
+          <input id="quais_projetos" name="quais_projetos" type="text" class="form-control" aria-describedby="quais_projetosHelpBlock"> 
+          <span id="quais_projetosHelpBlock" class="form-text text-muted">Inserir resumo do currículo e da experiência profissional e especificar as atividades executadas sob sua responsabilidade na execução do projeto correspondente.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="titulo_projeto" class="col-4 col-form-label">Título do projeto</label> 
+        <div class="col-8">
+          <input id="titulo_projeto" name="titulo_projeto" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="resumo_objetos" class="col-4 col-form-label">Resumo dos objetivos</label> 
+        <div class="col-8">
+          <input id="resumo_objetos" name="resumo_objetos" type="text" class="form-control" aria-describedby="resumo_objetosHelpBlock"> 
+          <span id="resumo_objetosHelpBlock" class="form-text text-muted">Inserir resumo objetivo e conciso sobre o projeto.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="apresentacao" class="col-4 col-form-label">Apresentação do projeto</label> 
+        <div class="col-8">
+          <input id="apresentacao" name="apresentacao" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="objetivos" class="col-4 col-form-label">Objetivos do projeto</label> 
+        <div class="col-8">
+          <input id="objetivos" name="objetivos" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Abrangência do projeto" class="col-4 col-form-label">Abrangência do projeto</label> 
+        <div class="col-8">
+          <input id="Abrangência do projeto" name="Abrangência do projeto" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="justificativa" class="col-4 col-form-label">Justificativa para a execução do projeto</label> 
+        <div class="col-8">
+          <input id="justificativa" name="justificativa" type="text" class="form-control" aria-describedby="justificativaHelpBlock"> 
+          <span id="justificativaHelpBlock" class="form-text text-muted">Inserir informações sucintas sobre a importância, relevância social do projeto.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="proposta" class="col-4 col-form-label">Proposta Pedagógica</label> 
+        <div class="col-8">
+          <input id="proposta" name="proposta" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="metodologia" class="col-4 col-form-label">Metodologia</label> 
+        <div class="col-8">
+          <input id="metodologia" name="metodologia" type="text" class="form-control" aria-describedby="metodologiaHelpBlock"> 
+          <span id="metodologiaHelpBlock" class="form-text text-muted">Descrever sucintamente e de forma objetiva a metodologia, explicitando etapas ou fases de construção do projeto.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="avaliacao" class="col-4 col-form-label">Processo avaliativo</label> 
+        <div class="col-8">
+          <input id="avaliacao" name="avaliacao" type="text" class="form-control" aria-describedby="avaliacaoHelpBlock"> 
+          <span id="avaliacaoHelpBlock" class="form-text text-muted">Apresentação do processo de avaliação do projeto</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="beneficiados" class="col-4 col-form-label">Público beneficiado</label> 
+        <div class="col-8">
+          <input id="beneficiados" name="beneficiados" type="text" class="form-control" aria-describedby="beneficiadosHelpBlock"> 
+          <span id="beneficiadosHelpBlock" class="form-text text-muted">Identificar o Público atendido.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="acompanhamento" class="col-4 col-form-label">Acompanhamento e indicadores a serem utilizados</label> 
+        <div class="col-8">
+          <input id="acompanhamento" name="acompanhamento" type="text" class="form-control" aria-describedby="acompanhamentoHelpBlock"> 
+          <span id="acompanhamentoHelpBlock" class="form-text text-muted">Explicitar como será feito o acompanhamento da execução e dos resultados, e estabelecer indicadores da execução.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="recursos" class="col-4 col-form-label">Recursos necessários</label> 
+        <div class="col-8">
+          <input id="recursos" name="recursos" type="text" class="form-control" aria-describedby="recursosHelpBlock"> 
+          <span id="recursosHelpBlock" class="form-text text-muted">Indicar os recursos financeiros e seus fins para a execução do projeto.</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="acoes" class="col-4 col-form-label">Ações executadas</label> 
+        <div class="col-8">
+          <input id="acoes" name="acoes" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="metas" class="col-4 col-form-label">Metas gerais</label> 
+        <div class="col-8">
+          <input id="metas" name="metas" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="resultados" class="col-4 col-form-label">Resultados esperados</label> 
+        <div class="col-8">
+          <input id="resultados" name="resultados" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="text2" class="col-4 col-form-label">Detalhamento do orçamento</label> 
+        <div class="col-8">
+          <input id="text2" name="text2" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="edital" class="col-4 col-form-label">Edital</label> 
+        <div class="col-8">
+          <select id="edital" name="edital" class="custom-select" required="required">
+            <option value=""></option>
+          </select>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <div class="offset-4 col-8">
+          <button name="submit" type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </form>
+
+</div>
+
 
 {% endblock %}
