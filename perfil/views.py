@@ -3,7 +3,6 @@ from perfil.models import Perfil
 from perfil.serializers import PerfilSerializer
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
-import re
 
 from perfil.service import PerfilService
 
@@ -36,10 +35,8 @@ def perfil(request):
         perfil.UF = request.POST.get('UF')
         perfil.site = request.POST.get('site')
         perfil.save()
-        return render(request, 'projetos.html', {'section': 'projetos'})
+        return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
         
-        # Exemplo:
-        #     render(request, 'perfil.html', context={"perfil": {request.POST.get("perfil")}})
 def replace_mascara(numero):
     for n in "()-' '":
         numero = numero.replace(n, '')

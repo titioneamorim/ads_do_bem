@@ -11,4 +11,4 @@ class ProjetoService():
         perfil = _SERVICE_PERFIL.find_by_user(user)
         if perfil is None:
             return None
-        return Projeto.objects.filter(perfil_id=perfil.id).order_by('created')
+        return Projeto.objects.filter(perfil_id=perfil.id).order_by('-modified')

@@ -5,7 +5,6 @@ from projeto.service import ProjetoService
 from projeto.models import Projeto
 from projeto.serializers import ProjetoSerializer
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 
 _SERVICE_PROJETO =  ProjetoService()
 _SERVICE_PERFIL = PerfilService()
@@ -20,5 +19,14 @@ def projetos(request):
         return render(request, 'projetos.html', {'section': 'projetos'})
     return render(request, 'projetos.html', context={"projetos": projetos, 'section': 'projetos'})
     
-def projeto(request):
+def delete_projeto(request):
+    pass
+
+def edit_projeto(request):
+    pass
+
+def download_projeto(request):
+    pass
+
+def create_projeto(request):
     pass
