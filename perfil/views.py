@@ -28,13 +28,11 @@ def perfil(request):
         perfil.cidade = request.POST.get('cidade')
         perfil.dirigente = request.POST.get('dirigente')
         perfil.email_instituicao = request.POST.get('email_instituicao')
-        fax = request.POST.get('fax')
-        perfil.fax = re.sub(r'/[^\d]+/g', '', fax)
+        perfil.fax = replace_mascara(request.POST.get('fax'))
         perfil.logradouro = request.POST.get('logradouro')
         perfil.nome_instituicao = request.POST.get('nome_instituicao')
         perfil.numero = request.POST.get('numero')
-        telefone = request.POST.get('telefone')
-        perfil.telefone = re.sub(r'/[^\d]+/g', '', telefone)
+        perfil.telefone = replace_mascara(request.POST.get('telefone'))
         perfil.UF = request.POST.get('UF')
         perfil.site = request.POST.get('site')
         perfil.save()
@@ -42,3 +40,7 @@ def perfil(request):
         
         # Exemplo:
         #     render(request, 'perfil.html', context={"perfil": {request.POST.get("perfil")}})
+def replace_mascara(numero):
+    for n in "()-' '":
+        numero = numero.replace(n, '')
+    return numero
