@@ -3,7 +3,7 @@
 {% block title %}Perfil{% endblock %} 
 
 {% block content %}
-  <div class="container"style="justify-content: center; align-items: center; padding-top: 10%;">
+  <div class="container">
       <form method="POST" action="{% url 'perfil' %}">
         {% csrf_token %}
         <div class="form-group row">
