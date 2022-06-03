@@ -16,8 +16,7 @@ def projetos(request):
     user = request.user.id
     
     projetos = _SERVICE_PROJETO.find_by_perfil(user)
-    
-    if len(projetos) == 0:
+    if projetos is None:
         return render(request, 'projetos.html', {'section': 'projetos'})
     return render(request, 'projetos.html', context={"projetos": projetos})
     
