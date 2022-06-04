@@ -1,10 +1,10 @@
 {% extends "base.html" %} 
 {% include 'partials/messages.html' %}
-{% block title %}Projetos{% endblock %} 
+{% block title %}Projeto{% endblock %} 
 
 {% block content %}
 
-<h1>Projeto</h1>
+<h1 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Projeto</h1>
 
 <div class="container">
    <form action="" method="POST"> {% csrf_token %}
@@ -72,7 +72,7 @@
       <div class="form-group row">
         <label for="quais_projetos" class="col-4 col-form-label">Caso sim, quais projetos</label> 
         <div class="col-8">
-          <input id="quais_projetos" name="quais_projetos" type="text" class="form-control" aria-describedby="quais_projetosHelpBlock"> 
+          <textarea id="quais_projetos" name="quais_projetos" type="text" class="form-control" aria-describedby="quais_projetosHelpBlock" rows="3"> </textarea>
           <span id="quais_projetosHelpBlock" class="form-text text-muted">Inserir resumo do currículo e da experiência profissional e especificar as atividades executadas sob sua responsabilidade na execução do projeto correspondente.</span>
         </div>
       </div>
@@ -85,52 +85,52 @@
       <div class="form-group row">
         <label for="resumo_objetos" class="col-4 col-form-label">Resumo dos objetivos</label> 
         <div class="col-8">
-          <input id="resumo_objetos" name="resumo_objetos" type="text" class="form-control" aria-describedby="resumo_objetosHelpBlock"> 
+          <textarea id="resumo_objetos" name="resumo_objetos" type="text" class="form-control" aria-describedby="resumo_objetosHelpBlock" rows="3"> </textarea> 
           <span id="resumo_objetosHelpBlock" class="form-text text-muted">Inserir resumo objetivo e conciso sobre o projeto.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="apresentacao" class="col-4 col-form-label">Apresentação do projeto</label> 
         <div class="col-8">
-          <input id="apresentacao" name="apresentacao" type="text" class="form-control">
+          <textarea id="apresentacao" name="apresentacao" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="objetivos" class="col-4 col-form-label">Objetivos do projeto</label> 
         <div class="col-8">
-          <input id="objetivos" name="objetivos" type="text" class="form-control">
+          <textarea id="objetivos" name="objetivos" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="Abrangência do projeto" class="col-4 col-form-label">Abrangência do projeto</label> 
         <div class="col-8">
-          <input id="Abrangência do projeto" name="Abrangência do projeto" type="text" class="form-control">
+          <textarea id="Abrangência do projeto" name="Abrangência do projeto" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="justificativa" class="col-4 col-form-label">Justificativa para a execução do projeto</label> 
         <div class="col-8">
-          <input id="justificativa" name="justificativa" type="text" class="form-control" aria-describedby="justificativaHelpBlock"> 
+          <textarea id="justificativa" name="justificativa" type="text" class="form-control" aria-describedby="justificativaHelpBlock" rows="3"> </textarea>
           <span id="justificativaHelpBlock" class="form-text text-muted">Inserir informações sucintas sobre a importância, relevância social do projeto.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="proposta" class="col-4 col-form-label">Proposta Pedagógica</label> 
         <div class="col-8">
-          <input id="proposta" name="proposta" type="text" class="form-control">
+          <textarea id="proposta" name="proposta" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="metodologia" class="col-4 col-form-label">Metodologia</label> 
         <div class="col-8">
-          <input id="metodologia" name="metodologia" type="text" class="form-control" aria-describedby="metodologiaHelpBlock"> 
+          <textarea id="metodologia" name="metodologia" type="text" class="form-control" aria-describedby="metodologiaHelpBlock" rows="3"> </textarea>
           <span id="metodologiaHelpBlock" class="form-text text-muted">Descrever sucintamente e de forma objetiva a metodologia, explicitando etapas ou fases de construção do projeto.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="avaliacao" class="col-4 col-form-label">Processo avaliativo</label> 
         <div class="col-8">
-          <input id="avaliacao" name="avaliacao" type="text" class="form-control" aria-describedby="avaliacaoHelpBlock"> 
+          <textarea id="avaliacao" name="avaliacao" type="text" class="form-control" aria-describedby="avaliacaoHelpBlock" rows="3"> </textarea>
           <span id="avaliacaoHelpBlock" class="form-text text-muted">Apresentação do processo de avaliação do projeto</span>
         </div>
       </div>
@@ -144,48 +144,51 @@
       <div class="form-group row">
         <label for="acompanhamento" class="col-4 col-form-label">Acompanhamento e indicadores a serem utilizados</label> 
         <div class="col-8">
-          <input id="acompanhamento" name="acompanhamento" type="text" class="form-control" aria-describedby="acompanhamentoHelpBlock"> 
+          <textarea id="acompanhamento" name="acompanhamento" type="text" class="form-control" aria-describedby="acompanhamentoHelpBlock" rows="3"> </textarea> 
           <span id="acompanhamentoHelpBlock" class="form-text text-muted">Explicitar como será feito o acompanhamento da execução e dos resultados, e estabelecer indicadores da execução.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="recursos" class="col-4 col-form-label">Recursos necessários</label> 
         <div class="col-8">
-          <input id="recursos" name="recursos" type="text" class="form-control" aria-describedby="recursosHelpBlock"> 
+          <textarea id="recursos" name="recursos" type="text" class="form-control" aria-describedby="recursosHelpBlock" rows="3"> </textarea>
           <span id="recursosHelpBlock" class="form-text text-muted">Indicar os recursos financeiros e seus fins para a execução do projeto.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="acoes" class="col-4 col-form-label">Ações executadas</label> 
         <div class="col-8">
-          <input id="acoes" name="acoes" type="text" class="form-control">
+          <textarea id="acoes" name="acoes" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="metas" class="col-4 col-form-label">Metas gerais</label> 
         <div class="col-8">
-          <input id="metas" name="metas" type="text" class="form-control">
+          <textarea id="metas" name="metas" type="text" class="form-control" rows="2"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="resultados" class="col-4 col-form-label">Resultados esperados</label> 
         <div class="col-8">
-          <input id="resultados" name="resultados" type="text" class="form-control">
+          <textarea id="resultados" name="resultados" type="text" class="form-control" rows="5"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="text2" class="col-4 col-form-label">Detalhamento do orçamento</label> 
         <div class="col-8">
-          <input id="text2" name="text2" type="text" class="form-control">
+          <textarea id="text2" name="text2" type="text" class="form-control" rows="5"> </textarea>
         </div>
       </div>
       <div class="form-group row">
-        <label for="edital" class="col-4 col-form-label">Edital</label> 
-        <div class="col-8">
-          <select id="edital" name="edital" class="custom-select" required="required">
-            <option value=""></option>
-          </select>
-        </div>
+         <label for="edital" class="col-4 col-form-label">Edital</label> 
+         <div class="col-8">
+            <select id="" name="" class="custom-select" required="required">
+               <option value={{e.id}}>{{e.edital}}</option>
+            {% for e in editais %}
+               <option value={{e.id}}>{{e.edital}}</option>
+               {% endfor %}
+            </select>
+         </div>
       </div> 
       <div class="form-group row" action="{% url 'save_projeto'%}" method="POST">
         <div class="offset-4 col-8">
@@ -195,6 +198,4 @@
     </form>
 
 </div>
-
-
 {% endblock %}
