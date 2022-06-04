@@ -1,9 +1,7 @@
 from operator import contains
 from django.shortcuts import render
 from perfil.models import Perfil
-from perfil.serializers import PerfilSerializer
 from django.contrib.auth.decorators import login_required
-from django.http.response import HttpResponseRedirect
 from django.contrib import messages
 
 

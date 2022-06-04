@@ -1,8 +1,10 @@
-from edital.models import EditalModel
-from edital.serializers import EditalSerializer
-from rest_framework import viewsets
+# from django.shortcuts import render
 
-class EditalViewSet(viewsets.ModelViewSet):
-    serializer_class = EditalSerializer
-    queryset = EditalModel.objects.all()
-    http_method_names = ['get', 'post', 'patch']
+# from edital.service import EditalService
+
+
+# _SERVICE = EditalService()
+
+# def editais(request):
+#     editais = EditalService.find_all_editais()
+#     return render(request, 'home.html')
