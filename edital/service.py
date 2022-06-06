@@ -5,3 +5,6 @@ class EditalService():
     
     def find_all_editais(self):
         return EditalModel.objects.all()
+    
+    def find_by_id(self, id):
+        return EditalModel.objects.filter(id = id).first

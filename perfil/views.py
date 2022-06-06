@@ -12,7 +12,7 @@ _PERFIL_SERVICE = PerfilService()
 @login_required
 def perfil(request):
     if request.method == 'GET':
-        perfil = _PERFIL_SERVICE.find_by_user(request.user.id)
+        perfil = _PERFIL_SERVICE.find_by_user(request.user)
         if perfil is None:
             return render(request, 'perfil.html', {'section': 'perfil'})
         else:
@@ -20,7 +20,7 @@ def perfil(request):
             
             
     if request.method == 'POST':
-        perfil = _PERFIL_SERVICE.find_by_user(request.user.id)
+        perfil = _PERFIL_SERVICE.find_by_user(request.user)
         if perfil is None:
             perfil = Perfil()
         perfil.usuario = request.user
