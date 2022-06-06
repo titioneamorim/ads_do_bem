@@ -7,7 +7,7 @@
 <h1 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Projeto</h1>
 
 <div class="container">
-   <form action="" method="POST"> {% csrf_token %}
+   <form action="{% url 'save_projeto'%}" method="POST"> {% csrf_token %}
       <div class="form-group row">
         <label class="col-4 col-form-label" for="nome_projeto">Nome do projeto</label> 
         <div class="col-8">
@@ -190,7 +190,7 @@
             </select>
          </div>
       </div> 
-      <div class="form-group row" action="{% url 'save_projeto'%}" method="POST">
+      <div class="form-group row">
         <div class="offset-4 col-8">
           <button name="submit" type="submit" class="btn btn-primary">Salvar</button>
         </div>
@@ -198,4 +198,11 @@
     </form>
 
 </div>
+
+
+<script type="text/javascript">
+  function onLoadBody() {
+    document.getElementById('control_EMAIL').readOnly = true;
+  } 
+</script>
 {% endblock %}
