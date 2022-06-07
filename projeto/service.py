@@ -22,7 +22,7 @@ class ProjetoService():
     
     def save_projeto(self, data):
         perfil = _SERVICE_PERFIL.find_by_user(data.get("user"))
-        edital = _SERVICE_EDITAL.find_by_id(data.get(""))
+        edital = _SERVICE_EDITAL.find_all_editais()
         # projeto = Projeto()
         
         
@@ -53,7 +53,7 @@ class ProjetoService():
             acoes_executadas = data.get("acoes_executadas"),
             metas_gerais = data.get("metas_gerais"),
             detalhamento_orcamento = data.get("detalhamento_orcamento"),
-            template = data.get("edital"),
+            edital = edital[0],
             perfil_id = perfil,
         )
         projeto.save()

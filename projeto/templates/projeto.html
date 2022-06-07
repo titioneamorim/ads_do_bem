@@ -23,13 +23,13 @@
       <div class="form-group row">
         <label for="text" class="col-4 col-form-label">Fim da execução</label> 
         <div class="col-8">
-          <input id="text" name="text" type="text" class="form-control">
+          <input id="text" name="fim_execucao" type="text" class="form-control">
         </div>
       </div>
       <div class="form-group row">
         <label for="custo" class="col-4 col-form-label">Custo total</label> 
         <div class="col-8">
-          <input id="custo" name="custo" type="text" class="form-control">
+          <input id="custo" name="valor_total" type="text" class="form-control">
         </div>
       </div>
       <div class="form-group row">
@@ -53,18 +53,18 @@
       <div class="form-group row">
         <label for="text1" class="col-4 col-form-label">Atividades do responsável</label> 
         <div class="col-8">
-          <input id="text1" name="text1" type="text" class="form-control">
+          <input id="text1" name="atividades_responsavel" type="text" class="form-control">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-4">Coordena ou coordenou outro(s) projeto(s)?</label> 
         <div class="col-8">
           <div class="custom-control custom-radio custom-control-inline">
-            <input name="participou_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="sim"> 
+            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="sim"> 
             <label for="participou_projetos_0" class="custom-control-label">Sim</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input name="participou_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="nao"> 
+            <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="nao"> 
             <label for="participou_projetos_1" class="custom-control-label">Não</label>
           </div>
         </div>
@@ -79,13 +79,13 @@
       <div class="form-group row">
         <label for="titulo_projeto" class="col-4 col-form-label">Título do projeto</label> 
         <div class="col-8">
-          <input id="titulo_projeto" name="titulo_projeto" type="text" class="form-control">
+          <input id="titulo_projeto" name="titulo" type="text" class="form-control">
         </div>
       </div>
       <div class="form-group row">
         <label for="resumo_objetos" class="col-4 col-form-label">Resumo dos objetivos</label> 
         <div class="col-8">
-          <textarea id="resumo_objetos" name="resumo_objetos" type="text" class="form-control" aria-describedby="resumo_objetosHelpBlock" rows="3"> </textarea> 
+          <textarea id="resumo_objetos" name="resumo_objetivos" type="text" class="form-control" aria-describedby="resumo_objetosHelpBlock" rows="3"> </textarea> 
           <span id="resumo_objetosHelpBlock" class="form-text text-muted">Inserir resumo objetivo e conciso sobre o projeto.</span>
         </div>
       </div>
@@ -104,7 +104,7 @@
       <div class="form-group row">
         <label for="Abrangência do projeto" class="col-4 col-form-label">Abrangência do projeto</label> 
         <div class="col-8">
-          <textarea id="Abrangência do projeto" name="Abrangência do projeto" type="text" class="form-control" rows="3"> </textarea>
+          <textarea id="Abrangência do projeto" name="abrangencia" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
@@ -117,7 +117,7 @@
       <div class="form-group row">
         <label for="proposta" class="col-4 col-form-label">Proposta Pedagógica</label> 
         <div class="col-8">
-          <textarea id="proposta" name="proposta" type="text" class="form-control" rows="3"> </textarea>
+          <textarea id="proposta" name="proposta_pedagogica" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
@@ -137,52 +137,52 @@
       <div class="form-group row">
         <label for="beneficiados" class="col-4 col-form-label">Público beneficiado</label> 
         <div class="col-8">
-          <input id="beneficiados" name="beneficiados" type="text" class="form-control" aria-describedby="beneficiadosHelpBlock"> 
+          <input id="beneficiados" name="publico_beneficiado" type="text" class="form-control" aria-describedby="beneficiadosHelpBlock"> 
           <span id="beneficiadosHelpBlock" class="form-text text-muted">Identificar o Público atendido.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="acompanhamento" class="col-4 col-form-label">Acompanhamento e indicadores a serem utilizados</label> 
         <div class="col-8">
-          <textarea id="acompanhamento" name="acompanhamento" type="text" class="form-control" aria-describedby="acompanhamentoHelpBlock" rows="3"> </textarea> 
+          <textarea id="acompanhamento" name="acompanhamento_indicadores" type="text" class="form-control" aria-describedby="acompanhamentoHelpBlock" rows="3"> </textarea> 
           <span id="acompanhamentoHelpBlock" class="form-text text-muted">Explicitar como será feito o acompanhamento da execução e dos resultados, e estabelecer indicadores da execução.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="recursos" class="col-4 col-form-label">Recursos necessários</label> 
         <div class="col-8">
-          <textarea id="recursos" name="recursos" type="text" class="form-control" aria-describedby="recursosHelpBlock" rows="3"> </textarea>
+          <textarea id="recursos" name="recursos_necessarios" type="text" class="form-control" aria-describedby="recursosHelpBlock" rows="3"> </textarea>
           <span id="recursosHelpBlock" class="form-text text-muted">Indicar os recursos financeiros e seus fins para a execução do projeto.</span>
         </div>
       </div>
       <div class="form-group row">
         <label for="acoes" class="col-4 col-form-label">Ações executadas</label> 
         <div class="col-8">
-          <textarea id="acoes" name="acoes" type="text" class="form-control" rows="3"> </textarea>
+          <textarea id="acoes" name="acoes_executadas" type="text" class="form-control" rows="3"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="metas" class="col-4 col-form-label">Metas gerais</label> 
         <div class="col-8">
-          <textarea id="metas" name="metas" type="text" class="form-control" rows="2"> </textarea>
+          <textarea id="metas" name="metas_gerais" type="text" class="form-control" rows="2"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="resultados" class="col-4 col-form-label">Resultados esperados</label> 
         <div class="col-8">
-          <textarea id="resultados" name="resultados" type="text" class="form-control" rows="5"> </textarea>
+          <textarea id="resultados" name="resultados_esperados" type="text" class="form-control" rows="5"> </textarea>
         </div>
       </div>
       <div class="form-group row">
         <label for="text2" class="col-4 col-form-label">Detalhamento do orçamento</label> 
         <div class="col-8">
-          <textarea id="text2" name="text2" type="text" class="form-control" rows="5"> </textarea>
+          <textarea id="text2" name="detalhamento_orcamento" type="text" class="form-control" rows="5"> </textarea>
         </div>
       </div>
       <div class="form-group row">
          <label for="edital" class="col-4 col-form-label">Edital</label> 
          <div class="col-8">
-            <select id="" name="" class="custom-select" required="required">
+            <select id="" name="template" class="custom-select" required="required">
                <option value={{e.id}}>{{e.edital}}</option>
             {% for e in editais %}
                <option value={{e.id}}>{{e.edital}}</option>
