@@ -8,6 +8,7 @@
 
 <div class="container">
    <form action="{% url 'save_projeto'%}" method="POST"> {% csrf_token %}
+    <input type="hidden" id="perfil" name="perfil" value="{{request.user.perfil.pk}}">
       <div class="form-group row">
         <label class="col-4 col-form-label" for="nome_projeto">Nome do projeto</label> 
         <div class="col-8">
@@ -60,11 +61,11 @@
         <label class="col-4">Coordena ou coordenou outro(s) projeto(s)?</label> 
         <div class="col-8">
           <div class="custom-control custom-radio custom-control-inline">
-            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="sim"> 
+            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="true"> 
             <label for="participou_projetos_0" class="custom-control-label">Sim</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="nao"> 
+            <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="false"> 
             <label for="participou_projetos_1" class="custom-control-label">Não</label>
           </div>
         </div>
