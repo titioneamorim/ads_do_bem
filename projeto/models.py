@@ -105,11 +105,6 @@ class Projeto(TimeStampedModel):
         blank= True,
     )
 
-    # resultados_esperados = models.TextField(
-    #     db_column="RESULTADOS_ESPERADOS",
-    #     blank= True,
-    # )
-
     publico_beneficiado = models.TextField(
         db_column="PUBLICO_BENEFICIADO",
         blank= True,
