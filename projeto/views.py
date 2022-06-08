@@ -54,5 +54,5 @@ def save_projeto(request):
     if not serializer.is_valid():
         messages.error(request, serializer.errors)
     else:
-        _SERVICE_PROJETO.save_projeto(request.POST)
+        serializer.save()
     return HttpResponseRedirect('/projeto')
