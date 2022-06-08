@@ -18,13 +18,13 @@
       <div class="form-group row">
         <label for="inicio_execucao" class="col-4 col-form-label">Início da execução</label> 
         <div class="col-8">
-          <input id="inicio_execucao" name="inicio_execucao" type="text" class="form-control">
+          <input id="inicio_execucao"  name="inicio_execucao" type="date" class="form-control">
         </div>
       </div>
       <div class="form-group row">
         <label for="text" class="col-4 col-form-label">Fim da execução</label> 
         <div class="col-8">
-          <input id="text" name="fim_execucao" type="text" class="form-control">
+          <input id="text" name="fim_execucao" type="date" class="form-control">
         </div>
       </div>
       <div class="form-group row">
@@ -202,6 +202,8 @@
 
 
 <script type="text/javascript">
+
+  $('#date').mask('99/99/9999',{placeholder:"mm/dd/yyyy"});
   function onLoadBody() {
     document.getElementById('control_EMAIL').readOnly = true;
   } 
