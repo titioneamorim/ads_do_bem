@@ -18,7 +18,7 @@ class ProjetoService():
         return Projeto.objects.filter(id=id).delete()
     
     def find_by_id(self, id):
-        return Projeto.objects.filter(id=id).first
+        return Projeto.objects.filter(id=id).first()
     
     def update_projeto(self, data):
         projeto = self.find_by_id(data.get('id'))
