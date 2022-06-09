@@ -34,8 +34,9 @@ def delete_projeto(request, id):
     return HttpResponseRedirect('/projeto')
 
 def edit_projeto(request, id):
+    editais = _SERVICE_EDITAL.find_all_editais()
     projeto = _SERVICE_PROJETO.find_by_id(id)
-    return render(request, 'projeto.html', context={"projeto": projeto})
+    return render(request, 'projeto.html', context={"projeto": projeto, "editais": editais})
 
 def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
@@ -55,4 +56,5 @@ def save_projeto(request):
         messages.error(request, serializer.errors)
     else:
         serializer.save()
+        messages.success(request, "Projeto salvo com sucesso!")
     return HttpResponseRedirect('/projeto')
