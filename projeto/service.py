@@ -18,7 +18,7 @@ class ProjetoService():
         return Projeto.objects.filter(id=id).delete()
     
     def find_by_id(self, id):
-        return Projeto.objects.filter(id=id)
+        return Projeto.objects.filter(id=id).first
     
     # def save_projeto(self, data):
     #     perfil = _SERVICE_PERFIL.find_by_user(data.get("user"))

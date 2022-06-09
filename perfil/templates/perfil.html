@@ -9,6 +9,7 @@
   <div class="container">
       <form method="POST" action="{% url 'perfil' %}">
         {% csrf_token %}
+        <input type="hidden" id="perfil" name="perfil" value="{{request.user.pk}}">
         <div class="form-group row">
           <label for="nome_inst" class="col-4 col-form-label"> Nome da instituição *</label> 
           <div class="col-8">
