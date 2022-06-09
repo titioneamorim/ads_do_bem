@@ -9,7 +9,11 @@
 <div class="container">
    <form action="{% url 'save_projeto'%}" method="POST"> {% csrf_token %}
     <input type="hidden" id="perfil" name="perfil" value="{{request.user.perfil.pk}}">
+    {%  if projeto.id == "" %}
+    <input type="hidden" id="projeto_id" name="id" value="0">
+    {% else%}
     <input type="hidden" id="projeto_id" name="id" value="{{projeto.id}}">
+    {%endif%}
       <div class="form-group row">
         <label class="col-4 col-form-label" for="nome_projeto">Nome do projeto</label> 
         <div class="col-8">
@@ -60,9 +64,10 @@
       </div>
       <div class="form-group row">
         <label class="col-4">Coordena ou coordenou outro(s) projeto(s)?</label> 
+        {% if projeto.outros_projetos == 1%}
         <div class="col-8">
           <div class="custom-control custom-radio custom-control-inline">
-            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="true"> 
+            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="true" checked> 
             <label for="participou_projetos_0" class="custom-control-label">Sim</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
@@ -70,6 +75,30 @@
             <label for="participou_projetos_1" class="custom-control-label">Não</label>
           </div>
         </div>
+        {% elif projeto.outros_projetos == 0 %}
+        <div class="col-8">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="true" > 
+            <label for="participou_projetos_0" class="custom-control-label">Sim</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="false" checked> 
+            <label for="participou_projetos_1" class="custom-control-label">Não</label>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-8">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="true" > 
+            <label for="participou_projetos_0" class="custom-control-label">Sim</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="false"> 
+            <label for="participou_projetos_1" class="custom-control-label">Não</label>
+          </div>
+        </div>
+        {%endif%}
+
       </div>
       <div class="form-group row">
         <label for="quais_projetos" class="col-4 col-form-label">Caso sim, quais projetos</label> 
@@ -185,9 +214,13 @@
          <label for="edital" class="col-4 col-form-label">Edital</label> 
          <div class="col-8">
             <select id="" name="template" class="custom-select" required="required">
-               <option value={{e.id}}>{{e.edital}}</option>
+              
             {% for e in editais %}
-               <option value={{e.id}}>{{e.edital}}</option>
+                {% if projeto.template_id == e.id%}
+                    <option value={{e.id}}>{{e.edital}}</option>
+                {%else%}
+                <option value={{e.id}}>{{e.edital}}</option>
+                {%endif%}
                {% endfor %}
             </select>
          </div>
