@@ -9,6 +9,7 @@
 <div class="container">
    <form action="{% url 'save_projeto'%}" method="POST"> {% csrf_token %}
     <input type="hidden" id="perfil" name="perfil" value="{{request.user.perfil.pk}}">
+    <input type="hidden" id="projeto_id" name="id" value="{{projeto.id}}">
       <div class="form-group row">
         <label class="col-4 col-form-label" for="nome_projeto">Nome do projeto</label> 
         <div class="col-8">
