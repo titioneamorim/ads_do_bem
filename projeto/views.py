@@ -51,10 +51,14 @@ def create_projeto(request):
     return render(request, 'projeto.html', context={'editais': editais})
 
 def save_projeto(request):
-    serializer = ProjetoSerializer(data=request.POST)
-    if not serializer.is_valid():
-        messages.error(request, serializer.errors)
+    if request.POST.get('id') == '':
+        serializer = ProjetoSerializer(data=request.POST)
+        if not serializer.is_valid():
+            messages.error(request, serializer.errors)
+        else:
+            serializer.save()
+            messages.success(request, "Projeto salvo com sucesso!")
+        return HttpResponseRedirect('/projeto')
     else:
-        serializer.save()
-        messages.success(request, "Projeto salvo com sucesso!")
-    return HttpResponseRedirect('/projeto')
+        _SERVICE_PROJETO.update_projeto(request.POST)
+        return HttpResponseRedirect('/projeto')
