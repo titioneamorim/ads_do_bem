@@ -7,4 +7,4 @@ class EditalService():
         return EditalModel.objects.all()
     
     def find_by_id(self, id):
-        return EditalModel.objects.filter(id = id).first
+        return EditalModel.objects.filter(id = id).first()

@@ -6,6 +6,7 @@ from projeto.models import Projeto
 _SERVICE_PERFIL = PerfilService()
 _SERVICE_EDITAL = EditalService()
 
+
 class ProjetoService():
     
     def find_by_user(self, user):
@@ -18,7 +19,7 @@ class ProjetoService():
         return Projeto.objects.filter(id=id).delete()
     
     def find_by_id(self, id):
-        return Projeto.objects.filter(id=id).first
+        return Projeto.objects.filter(id=id).first()
     
     def update_projeto(self, data):
         projeto = self.find_by_id(data.get('id'))
@@ -49,7 +50,7 @@ class ProjetoService():
         projeto.acoes_executadas = data.get("acoes_executadas"),
         projeto.metas_gerais = data.get("metas_gerais"),
         projeto.detalhamento_orcamento = data.get("detalhamento_orcamento"),
-        projeto.template = data.get("template"),
+        projeto.template = _SERVICE_EDITAL.find_by_id(data.get("template")),
         
         projeto.save()
         
