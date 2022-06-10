@@ -217,9 +217,9 @@
               
             {% for e in editais %}
                 {% if projeto.template_id == e.id%}
-                    <option value={{e.id}}>{{e.edital}}</option>
+                  <option value={{e.id}} selected>{{e.edital}} </option>
                 {%else%}
-                <option value={{e.id}}>{{e.edital}}</option>
+                  <option value={{e.id}}>{{e.edital}} </option>
                 {%endif%}
                {% endfor %}
             </select>
@@ -231,7 +231,6 @@
         </div>
       </div>
     </form>
-
 </div>
 
 

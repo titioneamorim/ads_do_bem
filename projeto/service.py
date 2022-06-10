@@ -29,8 +29,8 @@ class ProjetoService():
         projeto = get_object_or_404(Projeto, id=data.POST.get('id'))
         
         projeto.nome_projeto = data.POST.get("nome_projeto")
-        projeto.inicio_execucao = data.POST.get("inicio_execucao")
-        projeto.fim_execucao = data.POST.get("fim_execucao")
+        projeto.inicio_execucao = valida_campo(data.POST.get("inicio_execucao"))
+        projeto.fim_execucao = valida_campo(data.POST.get("fim_execucao"))
         projeto.valor_total = data.POST.get("valor_total")
         projeto.nome_responsavel = data.POST.get("nome_responsavel")
         projeto.telefone_responsavel = data.POST.get("telefone_responsavel")
@@ -57,4 +57,8 @@ class ProjetoService():
         projeto.template = _SERVICE_EDITAL.find_by_id(data.POST.get("template"))
         projeto.save()
         return None
-        
+    
+def valida_campo (campo):
+    if campo =="":
+        return None
+    return campo
