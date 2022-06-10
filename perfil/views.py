@@ -37,7 +37,7 @@ def perfil(request):
         if perfil.pk is not None:
             messages.success(request, "Perfil salvo com sucesso!")
         else:
-            messages.warning(request, "Erro ao cadastrar perfil, tente novamente!")
+            messages.error(request, "Erro ao cadastrar perfil, tente novamente!")
         return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
         
 def replace_mascara(numero):
