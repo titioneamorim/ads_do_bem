@@ -41,7 +41,8 @@ def edit_projeto(request, id):
 def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
-    return render(request, 'download.html', context={"projeto": projeto, "perfil": perfil})
+    edital = _SERVICE_EDITAL.find_by_id(projeto.template.id)
+    return render(request, f'{edital.edital}.html', context={"projeto": projeto, "perfil": perfil})
 
 def create_projeto(request):
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
