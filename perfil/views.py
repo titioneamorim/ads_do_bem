@@ -3,8 +3,8 @@ from perfil.models import Perfil
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-
 from perfil.service import PerfilService
+
 
 _PERFIL_SERVICE = PerfilService()
 
@@ -16,7 +16,6 @@ def perfil(request):
             return render(request, 'perfil.html', {'section': 'perfil'})
         else:
             return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
-            
             
     if request.method == 'POST':
         perfil = _PERFIL_SERVICE.find_by_user(request.user)

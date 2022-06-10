@@ -19,8 +19,11 @@ class ProjetoService():
     def delete_projeto(self, id):
         return Projeto.objects.filter(id=id).delete()
     
-    def find_by_id(self, id):
-        return Projeto.objects.filter(id=id).first()
+    def find_by_id(self, id) -> Projeto:
+        projeto = Projeto.objects.filter(id=id)
+        if len(projeto) == 0:
+            return None
+        return projeto[0]
     
     def update_projeto(self, data):
         projeto = get_object_or_404(Projeto, id=data.POST.get('id'))

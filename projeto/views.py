@@ -1,14 +1,12 @@
 from django.shortcuts import render
 from edital.service import EditalService
 from perfil.service import PerfilService
-from perfil.views import perfil
-from projeto import serializers
-import projeto
 from projeto.service import ProjetoService
 from projeto.serializers import ProjetoSerializer
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.contrib import messages
+
 
 _SERVICE_PROJETO =  ProjetoService()
 _SERVICE_PERFIL = PerfilService()
@@ -35,6 +33,9 @@ def delete_projeto(request, id):
 def edit_projeto(request, id):
     editais = _SERVICE_EDITAL.find_all_editais()
     projeto = _SERVICE_PROJETO.find_by_id(id)
+    projeto.inicio_execucao = str(projeto.inicio_execucao)
+    projeto.fim_execucao = str(projeto.fim_execucao)
+    
     return render(request, 'projeto.html', context={"projeto": projeto, "editais": editais})
 
 def download_projeto(request, id):
