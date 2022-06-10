@@ -44,9 +44,6 @@ def download_projeto(request, id):
     return render(request, 'download.html', context={"projeto": projeto, "perfil": perfil})
 
 def create_projeto(request):
-    perfil = _SERVICE_PERFIL.find_by_user(request.user)
-    if perfil is None:
-        return HttpResponseRedirect('/perfil')
     editais = _SERVICE_EDITAL.find_all_editais()
     return render(request, 'projeto.html', context={'editais': editais})
 
