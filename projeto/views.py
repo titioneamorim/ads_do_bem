@@ -17,13 +17,12 @@ _SERVICE_EDITAL = EditalService()
 @login_required
 def projetos(request):
     
-    user = request.user
-    perfil = _SERVICE_PERFIL.find_by_user(user)
+    perfil = _SERVICE_PERFIL.find_by_user(request.user)
     if perfil is None:
         messages.warning(request, "Você precisa cadastrar o perfil antes de começar um projeto!")
-        render(request, 'perfil.html')
+        return HttpResponseRedirect('/perfil')
     
-    projetos = _SERVICE_PROJETO.find_by_user(user)
+    projetos = _SERVICE_PROJETO.find_by_user(request.user)
     if projetos is None:
         return render(request, 'projetos.html', {'section': 'projetos'})
     return render(request, 'projetos.html', context={"projetos": projetos, 'section': 'projetos'})
@@ -55,10 +54,12 @@ def save_projeto(request):
         serializer = ProjetoSerializer(data=request.POST)
         if not serializer.is_valid():
             messages.error(request, serializer.errors)
+            return render(request, 'projeto.html')
         else:
             serializer.save()
             messages.success(request, "Projeto salvo com sucesso!")
         return HttpResponseRedirect('/projeto')
     else:
-        _SERVICE_PROJETO.update_projeto(request.POST)
+        _SERVICE_PROJETO.update_projeto(request)
+        messages.success(request, "Projeto editado com sucesso!")
         return HttpResponseRedirect('/projeto')

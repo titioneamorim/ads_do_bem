@@ -1,4 +1,3 @@
-from operator import contains
 from django.shortcuts import render
 from perfil.models import Perfil
 from django.contrib.auth.decorators import login_required
