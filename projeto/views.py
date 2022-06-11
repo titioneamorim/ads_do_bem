@@ -47,18 +47,18 @@ def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
     edital = _SERVICE_EDITAL.find_by_id(projeto.template.id)
-    # return render(request, f'{edital.edital}.html', context={"projeto": projeto, "perfil": perfil})
+    return render(request, f'{edital.edital}.html', context={"projeto": projeto, "perfil": perfil})
 
-    html_string = render_to_string(f'{edital.edital}.html', {"projeto": projeto, "perfil": perfil})
-    html = HTML(string=html_string)
-    html.write_pdf(target=f'/tmp/{edital.edital}.pdf')
+    # html_string = render_to_string(f'{edital.edital}.html', {"projeto": projeto, "perfil": perfil})
+    # html = HTML(string=html_string)
+    # html.write_pdf(target=f'/tmp/{edital.edital}.pdf')
     
-    fs = FileSystemStorage('/tmp')
+    # fs = FileSystemStorage('/tmp')
     
-    with fs.open(f'{edital.edital}.pdf') as pdf:
-        response = HttpResponse(pdf, content_type='application/pdf')
-        response['Content-Disposition'] = f'attachment; filename="{edital.edital}.pdf"'
-        return response
+    # with fs.open(f'{edital.edital}.pdf') as pdf:
+    #     response = HttpResponse(pdf, content_type='application/pdf')
+    #     response['Content-Disposition'] = f'attachment; filename="{edital.edital}.pdf"'
+    #     return response
     
     
 def create_projeto(request):
