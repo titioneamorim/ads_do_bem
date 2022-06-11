@@ -1,9 +1,86 @@
-{% extends "base.html" %} 
-{% include 'partials/messages.html' %}
-{% block title %}Projeto{% endblock %} 
-
-{% block content %}
-
-Gera PDF
-
-{% endblock %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" type="text/css" id="u0" href="https://pt.rakko.tools/tools/129/lib/tinymce/skins/ui/oxide/content.min.css">
+      <link rel="stylesheet" type="text/css" id="u1" href="https://pt.rakko.tools/tools/129/lib/tinymce/skins/content/default/content.min.css">
+   </head>
+   <body id="tinymce" class="mce-content-body " data-id="content" contenteditable="true" spellcheck="false">
+      <h1 data-mce-style="text-align: center;" style="text-align: center;">Plano de projeto</h1>
+      <table border="1" style="width: 100%; height: 66px;" data-mce-style="width: 100%; height: 66px;">
+         <thead>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141); text-align: center;">Plano de trabalho</td>
+            </tr>
+         </thead>
+         <tbody>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);">Nome do projeto: {{projeto.nome_projeto}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>Período de execução: {{projeto.inicio_execucao}} à {{projeto.fim_execucao}}</td>
+            </tr>
+            <tr data-mce-style="text-align: left;" style="height: 22px;">
+               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);">Valor investido: R$ {{projeto.valor_total}}</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>DADOS DA INSTITUIÇÃO</p>
+      <table style="border-collapse: collapse; width: 100%; height: 132px; border-color: #7E8C8D; border-style: outset;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 132px; border-color: #7E8C8D; border-style: outset;">
+         <tbody>
+            <tr style="height: 22px; border-color: rgb(126, 140, 141);" data-mce-style="height: 22px; border-color: #7e8c8d;">
+               <td style="width: 100%; height: 22px;">Nome da instituição: {{perfil.nome_instituicao}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">Dirigente: {{perfil.nome_dirigente}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">Rua: {{perfil.logradouro}} nº {{perfil.numero}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">Bairro: {{perfil.bairro}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cidade: {{perfil.cidade}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">Telefone: {{perfil.telefone}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fax: {{perfil.fax}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Site: {{perfil.site}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">E-mail: {{perfil.email_instituicao}}</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>RESPONSÁVEL TÉCNICO</p>
+      <table style="border-collapse: collapse; width: 100%; height: 88px;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 88px;" data-mce-selected="1">
+         <tbody>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">Nome: {{projeto.nome_responsavel}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">Telefone: {{projeto.telefone}}</td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">
+                  <p>Atividades sob sua responsabilidade na execução do projeto:</p>
+                  <p>{{projeto.atividades_responsavel}}</p>
+               </td>
+            </tr>
+            <tr style="height: 22px;">
+               <td style="width: 100%; height: 22px;">
+                  <p>Coordena ou coordenou algum projeto?</p>
+                  <p>adicionar_radio</p>
+                  <p>Se sim, descreva o nome dos projetos:</p>
+                  <p>{{projeto.quais_projetos}}</p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <p><br></p>
+      <div id="mceResizeHandlenw" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: nw-resize; margin: 0px; padding: 0px; left: 11px; top: 541.391px;" style="cursor: nw-resize; margin: 0px; padding: 0px; left: 11px; top: 541.391px;"></div>
+      <div id="mceResizeHandlene" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: ne-resize; margin: 0px; padding: 0px; left: 950px; top: 541.391px;" style="cursor: ne-resize; margin: 0px; padding: 0px; left: 950px; top: 541.391px;"></div>
+      <div id="mceResizeHandlese" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: se-resize; margin: 0px; padding: 0px; left: 950px; top: 904.641px;" style="cursor: se-resize; margin: 0px; padding: 0px; left: 950px; top: 904.641px;"></div>
+      <div id="mceResizeHandlesw" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: sw-resize; margin: 0px; padding: 0px; left: 11px; top: 904.641px;" style="cursor: sw-resize; margin: 0px; padding: 0px; left: 11px; top: 904.641px;"></div>
+   </body>
+   <div data-row="0" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 307.141px; height: 7px; width: 939px;"></div>
+   <div data-row="1" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 343.312px; height: 7px; width: 939px;"></div>
+   <div data-row="2" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 379.484px; height: 7px; width: 939px;"></div>
+   <div data-row="3" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 415.656px; height: 7px; width: 939px;"></div>
+   <div data-row="4" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 451.828px; height: 7px; width: 939px;"></div>
+   <div data-row="5" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 488px; height: 7px; width: 939px;"></div>
+   <div data-column="0" role="presentation" class="ephox-snooker-resizer-cols ephox-snooker-resizer-bar" style="position: absolute; left: 951px; top: 273.969px; height: 218.031px; width: 7px;"></div>
+</html>
