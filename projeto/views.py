@@ -11,7 +11,7 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.template.loader import render_to_string
 
-from weasyprint import HTML
+# from weasyprint import HTML
 
 _SERVICE_PROJETO =  ProjetoService()
 _SERVICE_PERFIL = PerfilService()
