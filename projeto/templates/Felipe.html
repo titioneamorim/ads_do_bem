@@ -22,7 +22,7 @@
             </tr>
          </tbody>
       </table>
-      <p>DADOS DA INSTITUIÇÃO</p>
+      <h3>DADOS DA INSTITUIÇÃO</h3>
       <table style="border-collapse: collapse; width: 100%; height: 132px; border-color: #7E8C8D; border-style: outset;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 132px; border-color: #7E8C8D; border-style: outset;">
          <tbody>
             <tr style="height: 22px; border-color: rgb(126, 140, 141);" data-mce-style="height: 22px; border-color: #7e8c8d;">
@@ -32,7 +32,7 @@
                <td style="width: 100%; height: 22px;">Dirigente: {{perfil.nome_dirigente}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Rua: {{perfil.logradouro}} nº {{perfil.numero}}</td>
+               <td style="width: 100%; height: 22px;">Rua: {{perfil.logradouro nº {{perfil.numero}}</td>
             </tr>
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px;">Bairro: {{perfil.bairro}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cidade: {{perfil.cidade}}</td>
@@ -45,8 +45,8 @@
             </tr>
          </tbody>
       </table>
-      <p>RESPONSÁVEL TÉCNICO</p>
-      <table style="border-collapse: collapse; width: 100%; height: 88px;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 88px;" data-mce-selected="1">
+      <h3>RESPONSÁVEL TÉCNICO</h3>
+      <table style="border-collapse: collapse; width: 100%; height: 88px;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 88px;">
          <tbody>
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px;">Nome: {{projeto.nome_responsavel}}</td>
@@ -70,17 +70,68 @@
             </tr>
          </tbody>
       </table>
-      <p><br></p>
-      <div id="mceResizeHandlenw" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: nw-resize; margin: 0px; padding: 0px; left: 11px; top: 541.391px;" style="cursor: nw-resize; margin: 0px; padding: 0px; left: 11px; top: 541.391px;"></div>
-      <div id="mceResizeHandlene" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: ne-resize; margin: 0px; padding: 0px; left: 950px; top: 541.391px;" style="cursor: ne-resize; margin: 0px; padding: 0px; left: 950px; top: 541.391px;"></div>
-      <div id="mceResizeHandlese" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: se-resize; margin: 0px; padding: 0px; left: 950px; top: 904.641px;" style="cursor: se-resize; margin: 0px; padding: 0px; left: 950px; top: 904.641px;"></div>
-      <div id="mceResizeHandlesw" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: sw-resize; margin: 0px; padding: 0px; left: 11px; top: 904.641px;" style="cursor: sw-resize; margin: 0px; padding: 0px; left: 11px; top: 904.641px;"></div>
+      <h3>DADOS DO PROJETO</h3>
+      <table style="border-collapse: collapse; width: 100%;" border="1">
+         <tbody>
+            <tr>
+               <td style="width: 100%;">
+                  <h4 style="text-align: center;" data-mce-style="text-align: center;">{{projeto.titulo}}</h4>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">{{projeto.resumo_objetivos}}</td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">Apresentação: {{projeto.apresentacao}}<br>{{projeto.resumo}}<br></td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">Abrangência:<br>{{projeto.abrangencia}}</td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">A execução do projeto justifica-se por:<br>{{projeto.justificativa}}<br></td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">Proposta pedagógica:<br>{{projeto.proposta_pedagogica}}<br></td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">Metodologia:<br>{{projeto.metodologia}}<br></td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p>Métodos de avaliação:<br>{{projeto.avaliacao}}</p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">Público beneficiado:<br>{{projeto.publico_beneficiado}}<br></td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p>Acompanhamento e indicadores:<br>{{projeto.acompanhamento_indicadores}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p>Recursos necessários:<br>{{projeto.recursos_necessarios}}<br></p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <h3>PLANEJAMENTO DAS AÇÕES</h3>
+      <table style="border-collapse: collapse; width: 100%;" border="1" data-mce-style="border-collapse: collapse; width: 100%;" data-mce-selected="1">
+         <tbody>
+            <tr>
+               <td style="width: 100%;" data-mce-style="width: 100%;">
+                  <p>{{projeto.acoes_executadas}}</p>
+                  <p>SObre as metas gerais:<br>{{projeto.metas_gerais}}<br></p>
+                  <p>Sobre os resultados esperados:<br>{{projeto.resultados_esperados}}<br></p>
+                  <p>Detalhamento do orçamento:<br>{{projeto.detalhamento_orcamento}}<br></p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <div id="mceResizeHandlenw" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: nw-resize; margin: 0px; padding: 0px; left: 11px; top: 1789.36px;" style="cursor: nw-resize; margin: 0px; padding: 0px; left: 11px; top: 1789.36px;"></div>
+      <div id="mceResizeHandlene" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: ne-resize; margin: 0px; padding: 0px; left: 950px; top: 1789.36px;" style="cursor: ne-resize; margin: 0px; padding: 0px; left: 950px; top: 1789.36px;"></div>
+      <div id="mceResizeHandlese" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: se-resize; margin: 0px; padding: 0px; left: 950px; top: 2040.88px;" style="cursor: se-resize; margin: 0px; padding: 0px; left: 950px; top: 2040.88px;"></div>
+      <div id="mceResizeHandlesw" data-mce-bogus="all" class="mce-resizehandle" unselectable="true" data-mce-style="cursor: sw-resize; margin: 0px; padding: 0px; left: 11px; top: 2040.88px;" style="cursor: sw-resize; margin: 0px; padding: 0px; left: 11px; top: 2040.88px;"></div>
    </body>
-   <div data-row="0" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 307.141px; height: 7px; width: 939px;"></div>
-   <div data-row="1" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 343.312px; height: 7px; width: 939px;"></div>
-   <div data-row="2" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 379.484px; height: 7px; width: 939px;"></div>
-   <div data-row="3" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 415.656px; height: 7px; width: 939px;"></div>
-   <div data-row="4" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 451.828px; height: 7px; width: 939px;"></div>
-   <div data-row="5" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 488px; height: 7px; width: 939px;"></div>
-   <div data-column="0" role="presentation" class="ephox-snooker-resizer-cols ephox-snooker-resizer-bar" style="position: absolute; left: 951px; top: 273.969px; height: 218.031px; width: 7px;"></div>
 </html>
