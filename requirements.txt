@@ -6,5 +6,5 @@ requests
 psycopg2-binary
 WeasyPrint
 PyGObject
-pyproject-tomlpip
+pyproject-toml
 pycairo

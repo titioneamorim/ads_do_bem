@@ -9,8 +9,12 @@ from django.http.response import HttpResponseRedirect
 from django.contrib import messages
 
 
+<<<<<<< HEAD
 
 
+=======
+# from weasyprint import HTML
+>>>>>>> refs/remotes/origin/main
 
 _SERVICE_PROJETO =  ProjetoService()
 _SERVICE_PERFIL = PerfilService()
