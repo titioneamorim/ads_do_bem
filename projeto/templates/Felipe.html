@@ -15,10 +15,10 @@
          </thead>
          <tbody>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);">Nome do projeto: {{projeto.nome_projeto}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>Período de execução: {{projeto.inicio_execucao}} à {{projeto.fim_execucao}}</td>
+               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);"><strong>Nome do projeto:</strong> {{projeto.nome_projeto}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br><strong>Período de execução:</strong> {{projeto.inicio_execucao}} à {{projeto.fim_execucao}}</td>
             </tr>
             <tr data-mce-style="text-align: left;" style="height: 22px;">
-               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);">Valor investido: R$ {{projeto.valor_total}}</td>
+               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);"><strong>Valor investido: R$</strong> {{projeto.valor_total}}</td>
             </tr>
          </tbody>
       </table>
@@ -26,22 +26,22 @@
       <table style="border-collapse: collapse; width: 100%; height: 132px; border-color: #7E8C8D; border-style: outset;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 132px; border-color: #7E8C8D; border-style: outset;">
          <tbody>
             <tr style="height: 22px; border-color: rgb(126, 140, 141);" data-mce-style="height: 22px; border-color: #7e8c8d;">
-               <td style="width: 100%; height: 22px;">Nome da instituição: {{perfil.nome_instituicao}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Nome da instituição:</strong> {{perfil.nome_instituicao}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Dirigente: {{perfil.nome_dirigente}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Dirigente:</strong> {{perfil.dirigente}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Rua: {{perfil.logradouro nº {{perfil.numero}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Rua:</strong> {{perfil.logradouro}} <strong>nº</strong> {{perfil.numero}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Bairro: {{perfil.bairro}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cidade: {{perfil.cidade}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Bairro:</strong> {{perfil.bairro}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>Cidade:</strong> {{perfil.cidade}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Telefone: {{perfil.telefone}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fax: {{perfil.fax}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Site: {{perfil.site}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Telefone:</strong> {{perfil.telefone}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>Fax:</strong> {{perfil.fax}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>Site:</strong> {{perfil.site}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">E-mail: {{perfil.email_instituicao}}</td>
+               <td style="width: 100%; height: 22px;"><strong>E-mail:</strong> {{perfil.email_instituicao}}</td>
             </tr>
          </tbody>
       </table>
@@ -49,22 +49,21 @@
       <table style="border-collapse: collapse; width: 100%; height: 88px;" border="1" data-mce-style="border-collapse: collapse; width: 100%; height: 88px;">
          <tbody>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Nome: {{projeto.nome_responsavel}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Nome:</strong> {{projeto.nome_responsavel}}</td>
             </tr>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px;">Telefone: {{projeto.telefone}}</td>
+               <td style="width: 100%; height: 22px;"><strong>Telefone:</strong> {{projeto.telefone_responsavel}}</td>
             </tr>
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px;">
-                  <p>Atividades sob sua responsabilidade na execução do projeto:</p>
+                  <p><strong>Atividades sob sua responsabilidade na execução do projeto:</strong></p>
                   <p>{{projeto.atividades_responsavel}}</p>
                </td>
             </tr>
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px;">
-                  <p>Coordena ou coordenou algum projeto?</p>
+                  <p><strong>Coordena ou coordenou algum projeto?</strong></p>
                   <p>adicionar_radio</p>
-                  <p>Se sim, descreva o nome dos projetos:</p>
                   <p>{{projeto.quais_projetos}}</p>
                </td>
             </tr>
@@ -75,43 +74,64 @@
          <tbody>
             <tr>
                <td style="width: 100%;">
-                  <h4 style="text-align: center;" data-mce-style="text-align: center;">{{projeto.titulo}}</h4>
+                  <h4 style="text-align: center;" data-mce-style="text-align: center;"><strong>{{projeto.titulo}}</strong></h4>
                </td>
             </tr>
             <tr>
-               <td style="width: 100%;">{{projeto.resumo_objetivos}}</td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">Apresentação: {{projeto.apresentacao}}<br>{{projeto.resumo}}<br></td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">Abrangência:<br>{{projeto.abrangencia}}</td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">A execução do projeto justifica-se por:<br>{{projeto.justificativa}}<br></td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">Proposta pedagógica:<br>{{projeto.proposta_pedagogica}}<br></td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">Metodologia:<br>{{projeto.metodologia}}<br></td>
+               <td style="width: 100%;"><strong>{{projeto.resumo_objetivos}}</strong></td>
             </tr>
             <tr>
                <td style="width: 100%;">
-                  <p>Métodos de avaliação:<br>{{projeto.avaliacao}}</p>
-               </td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">Público beneficiado:<br>{{projeto.publico_beneficiado}}<br></td>
-            </tr>
-            <tr>
-               <td style="width: 100%;">
-                  <p>Acompanhamento e indicadores:<br>{{projeto.acompanhamento_indicadores}}<br></p>
+                  <p><strong>Apresentação:</strong></p>
+                  <p> {{projeto.apresentacao}}</p>
+                  <p><br>{{projeto.resumo}}<br></p>
                </td>
             </tr>
             <tr>
                <td style="width: 100%;">
-                  <p>Recursos necessários:<br>{{projeto.recursos_necessarios}}<br></p>
+                  <p><strong>Abrangência:</strong></p>
+                  <p><br>{{projeto.abrangencia}}</p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>A execução do projeto justifica-se por:</strong></p>
+                  <p><br>{{projeto.justificativa}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Proposta pedagógica:</strong></p>
+                  <p><br>{{projeto.proposta_pedagogica}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Metodologia:</strong></p>
+                  <p><br>{{projeto.metodologia}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Métodos de avaliação:</strong></p>
+                  <p><br>{{projeto.avaliacao}}</p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Público beneficiado:</strong></p>
+                  <p><br>{{projeto.publico_beneficiado}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Acompanhamento e indicadores:</strong></p>
+                  <p><br>{{projeto.acompanhamento_indicadores}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Recursos necessários:</strong><br>{{projeto.recursos_necessarios}}<br></p>
                </td>
             </tr>
          </tbody>
@@ -122,9 +142,12 @@
             <tr>
                <td style="width: 100%;" data-mce-style="width: 100%;">
                   <p>{{projeto.acoes_executadas}}</p>
-                  <p>SObre as metas gerais:<br>{{projeto.metas_gerais}}<br></p>
-                  <p>Sobre os resultados esperados:<br>{{projeto.resultados_esperados}}<br></p>
-                  <p>Detalhamento do orçamento:<br>{{projeto.detalhamento_orcamento}}<br></p>
+                  <p><strong>Sobre as metas gerais:</strong></p>
+                  <p><br>{{projeto.metas_gerais}}<br></p>
+                  <p><strong>Sobre os resultados esperados:</strong></p>
+                  <p><br>{{projeto.resultados_esperados}}<br></p>
+                  <p><strong>Detalhamento do orçamento:</strong></p>
+                  <p><br>{{projeto.detalhamento_orcamento}}<br></p>
                </td>
             </tr>
          </tbody>
@@ -132,4 +155,11 @@
       <p>_____________________, ____ de _____________20__</p>
       <p style="text-align: center;" data-mce-style="text-align: center;">____________________________________<br>{{projeto.nome_responsavel}}</p>
    </body>
+   <div data-row="0" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 316.391px; height: 7px; width: 939px;"></div>
+   <div data-row="1" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 352.562px; height: 7px; width: 939px;"></div>
+   <div data-row="2" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 388.734px; height: 7px; width: 939px;"></div>
+   <div data-row="3" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 424.906px; height: 7px; width: 939px;"></div>
+   <div data-row="4" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 461.078px; height: 7px; width: 939px;"></div>
+   <div data-row="5" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 497.25px; height: 7px; width: 939px;"></div>
+   <div data-column="0" role="presentation" class="ephox-snooker-resizer-cols ephox-snooker-resizer-bar" style="position: absolute; left: 951px; top: 283.219px; height: 218.031px; width: 7px;"></div>
 </html>
