@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from edital.service import EditalService
 from perfil.service import PerfilService
@@ -7,6 +8,10 @@ from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.contrib import messages
 
+from django.core.files.storage import FileSystemStorage
+from django.template.loader import render_to_string
+
+from weasyprint import HTML
 
 _SERVICE_PROJETO =  ProjetoService()
 _SERVICE_PERFIL = PerfilService()
@@ -42,8 +47,20 @@ def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
     edital = _SERVICE_EDITAL.find_by_id(projeto.template.id)
-    return render(request, f'{edital.edital}.html', context={"projeto": projeto, "perfil": perfil})
+    # return render(request, f'{edital.edital}.html', context={"projeto": projeto, "perfil": perfil})
 
+    html_string = render_to_string(f'{edital.edital}.html', {"projeto": projeto, "perfil": perfil})
+    html = HTML(string=html_string)
+    html.write_pdf(target=f'/tmp/{edital.edital}.pdf')
+    
+    fs = FileSystemStorage('/tmp')
+    
+    with fs.open(f'{edital.edital}.pdf') as pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="{edital.edital}.pdf"'
+        return response
+    
+    
 def create_projeto(request):
     editais = _SERVICE_EDITAL.find_all_editais()
     return render(request, 'projeto.html', context={'editais': editais})
