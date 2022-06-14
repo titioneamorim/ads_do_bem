@@ -3,11 +3,20 @@
 {% block title %}Nova conta{% endblock %}
 
 {% block content %}
-  <h1>Nova conta</h1>
-  <p>Preencha, para criar uma nova conta:</p>
-  <form method="post">
-    {{ user_form.as_p }}
-    {% csrf_token %}
-    <p><input type="submit" value="Enviar"></p>
-  </form>
+  <div>
+    <h1>Nova conta</h1>
+    <p>Preencha, para criar uma nova conta:</p>
+    <form method="post">
+      {{ user_form.as_p }}
+      {% csrf_token %}
+      <br>
+      <div class="form-group form-check">
+        <p><a href="{% url 'termo' %}" target="_blank" rel="noopener noreferrer">Termo de responsabilidade </a></p>
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required=true>
+        <p><label class="form-check-label" for="exampleCheck1" >Li e concordo com os termos de responsabilidade</label></p>
+      </div>
+      <br>
+      <p><input type="submit" value="Enviar"></p>
+    </form>
+  </div>
 {% endblock %}

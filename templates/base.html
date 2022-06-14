@@ -43,7 +43,8 @@
                         Olá {{ request.user.first_name}},
                         <a href="{% url 'logout' %}">Sair</a>
                     {% else %}
-                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'login' %}" style="margin-right: 1em;">Login</a>
+                        <a href="{% url 'register' %}">Cadastre-se</a>
                     {% endif %}
                 </span>
         </div>
@@ -67,7 +68,7 @@
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li><a href="">Suporte</a></li>
-                                <li><a href="">Termos legais</a></li>
+                                <li><a href="{% url 'termo' %}" target="_blank" rel="noopener noreferrer">Termos legais</a></li>
                                 <li><a href="">Sobre</a></li>
                             </ul>
                         </div>

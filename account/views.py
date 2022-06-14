@@ -40,6 +40,11 @@ def index(request):
         'index.html',
         {'section': 'index'})
 
+def termo(request):
+    return render(request,
+        'termo.html',
+        {'section': 'index'})
+
 def registrar(request):
     if request.method == 'POST':
         user_form = RegistroUsuario(request.POST)

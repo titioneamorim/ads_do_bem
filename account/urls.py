@@ -23,4 +23,5 @@ urlpatterns = [
 
     #registrar novo usuário
     path('register/', views.registrar, name='register'),
+    path('termo/', views.termo, name='termo'),
 ]
