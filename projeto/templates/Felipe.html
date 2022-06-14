@@ -4,15 +4,15 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <link rel="stylesheet" type="text/css" id="u0" href="https://pt.rakko.tools/tools/129/lib/tinymce/skins/ui/oxide/content.min.css">
       <link rel="stylesheet" type="text/css" id="u1" href="https://pt.rakko.tools/tools/129/lib/tinymce/skins/content/default/content.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
    </head>
    <body id="tinymce" class="mce-content-body " data-id="content" contenteditable="true" spellcheck="false">
+      <div id="content">
+
       <h1 data-mce-style="text-align: center;" style="text-align: center;">Plano de projeto</h1>
+
       <table border="1" style="width: 100%; height: 66px;" data-mce-style="width: 100%; height: 66px;">
-         <thead>
-            <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141); text-align: center;">Plano de trabalho</td>
-            </tr>
-         </thead>
          <tbody>
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);"><strong>Nome do projeto:</strong> {{projeto.nome_projeto}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br><strong>Período de execução:</strong> {{projeto.inicio_execucao}} à {{projeto.fim_execucao}}</td>
@@ -63,7 +63,25 @@
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px;">
                   <p><strong>Coordena ou coordenou algum projeto?</strong></p>
-                  <p>adicionar_radio</p>
+                  {% if projeto.outros_projetos == 1%}
+                  <div class="col-8">
+                     <div class="custom-control custom-radio custom-control-inline">
+                        <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="True" checked> 
+                        <label for="participou_projetos_0" class="custom-control-label">Sim</label>
+                        <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="False"> 
+                        <label for="participou_projetos_1" class="custom-control-label">Não</label>
+                     </div>
+                  </div>
+                  {% else %}
+                  <div class="col-8">
+                     <div class="custom-control custom-radio custom-control-inline">
+                        <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="False" > 
+                        <label for="participou_projetos_0" class="custom-control-label">Sim</label>
+                        <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="True" checked> 
+                        <label for="participou_projetos_1" class="custom-control-label">Não</label>
+                     </div>
+                  </div>
+                  {%endif%}
                   <p>{{projeto.quais_projetos}}</p>
                </td>
             </tr>
@@ -154,6 +172,7 @@
       </table>
       <p>_____________________, ____ de _____________20__</p>
       <p style="text-align: center;" data-mce-style="text-align: center;">____________________________________<br>{{projeto.nome_responsavel}}</p>
+      </div>
    </body>
    <div data-row="0" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 316.391px; height: 7px; width: 939px;"></div>
    <div data-row="1" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 352.562px; height: 7px; width: 939px;"></div>
@@ -162,4 +181,27 @@
    <div data-row="4" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 461.078px; height: 7px; width: 939px;"></div>
    <div data-row="5" role="presentation" class="ephox-snooker-resizer-rows ephox-snooker-resizer-bar" style="position: absolute; left: 16px; top: 497.25px; height: 7px; width: 939px;"></div>
    <div data-column="0" role="presentation" class="ephox-snooker-resizer-cols ephox-snooker-resizer-bar" style="position: absolute; left: 951px; top: 283.219px; height: 218.031px; width: 7px;"></div>
-</html>
+
+      <script>
+         
+         function createPDF() {
+               var pdf = document.getElementById("content");
+               var opt = {
+                  margin: 1,
+                  filename: 'projeto.pdf',
+                  image: { type: 'jpeg', quality: 1 },
+                  html2canvas:  { scale: 2 },
+                  jsPDF: {unit: 'in', 
+                           format: 'a4', 
+                           orientation: 'portrait',
+                           
+                        }
+               };
+               html2pdf().set(opt).from(pdf).save();
+         };
+         
+         window.onload = createPDF;
+         
+      </script>
+
+   </html>
