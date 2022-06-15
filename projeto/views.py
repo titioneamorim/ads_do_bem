@@ -45,7 +45,7 @@ def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
     edital = _SERVICE_EDITAL.find_by_id(projeto.template.id)
-    projeto.valor_total = f"R${projeto.valor_total}"
+    projeto.valor_total = mascara_reais(projeto.valor_total)
     perfil.telefone = mascara_telefone_fax(perfil.telefone)
     projeto.telefone_responsavel = mascara_telefone_fax(projeto.telefone_responsavel)
     perfil.fax = mascara_telefone_fax(perfil.fax)
@@ -84,7 +84,6 @@ def save_projeto(request):
         return HttpResponseRedirect('/projeto')
 
 def mascara_telefone_fax(numero):
-    
     if len(numero) < 11:
         celular = str(numero)
         telFormatado = '({}) {}-{}'.format(celular[0:2]
@@ -96,3 +95,9 @@ def mascara_telefone_fax(numero):
                             celular[2] ,celular[3:7], celular[7:])
         return telFormatado
     
+def mascara_reais(valor):
+    valor = float(valor)
+    valor = f'R${valor:_.2f}'
+    valor = valor.replace('.',',').replace('_','.')
+    return valor
+        
