@@ -45,7 +45,7 @@ class Perfil(TimeStampedModel):
     
     telefone = models.CharField(
         db_column="TELEFONE",
-        max_length=10,
+        max_length=11,
     )    
 
     fax = models.CharField(
@@ -65,9 +65,10 @@ class Perfil(TimeStampedModel):
         max_length=50,
     )
     
-    usuario = models.OneToOneField(
+    usuario = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
-        on_delete= models.CASCADE
+        on_delete= models.CASCADE,
+        unique=True
         )
 
     class Meta:

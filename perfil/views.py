@@ -19,7 +19,8 @@ def perfil(request):
             return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
             
     if request.method == 'POST':
-        serializer = PerfilSerializer(data=request.POST)
+        perfil = _PERFIL_SERVICE.find_by_user(request.user.id)
+        serializer = PerfilSerializer(instance=perfil , data=request.POST)
         
         if not serializer.is_valid():
             messages.error(request, serializer.errors)
