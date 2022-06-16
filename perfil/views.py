@@ -1,10 +1,12 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
+from html5lib import serialize
 from perfil.models import Perfil
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from perfil.service import PerfilService
-
+from perfil.serializers import PerfilSerializer
 
 _PERFIL_SERVICE = PerfilService()
 
@@ -18,27 +20,37 @@ def perfil(request):
             return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
             
     if request.method == 'POST':
-        perfil = _PERFIL_SERVICE.find_by_user(request.user)
-        if perfil is None:
-            perfil = Perfil()
-        perfil.usuario = request.user
-        perfil.bairro = request.POST.get('bairro')
-        perfil.cidade = request.POST.get('cidade')
-        perfil.dirigente = request.POST.get('dirigente')
-        perfil.email_instituicao = request.POST.get('email_instituicao')
-        perfil.fax = replace_mascara(request.POST.get('fax'))
-        perfil.logradouro = request.POST.get('logradouro')
-        perfil.nome_instituicao = request.POST.get('nome_instituicao')
-        perfil.numero = request.POST.get('numero')
-        perfil.telefone = replace_mascara(request.POST.get('telefone'))
-        perfil.UF = request.POST.get('UF')
-        perfil.site = request.POST.get('site')
-        perfil.save()
-        if perfil.pk is not None:
-            messages.success(request, "Perfil salvo com sucesso!")
+        serializer = PerfilSerializer(data=request.POST)
+        
+        if not serializer.is_valid():
+            messages.error(request, serializer.errors)
+            return render(request, 'perfil.html', context={"perfil": request.POST, 'section': 'perfil'})
         else:
-            messages.error(request, "Erro ao cadastrar perfil, tente novamente!")
-        return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
+            serializer.save()
+            messages.success(request, "Perfil salvo com sucesso!")
+        return HttpResponseRedirect('/perfil')
+    
+        # perfil = _PERFIL_SERVICE.find_by_user(request.user)
+        # if perfil is None:
+        #     perfil = Perfil()
+        # perfil.usuario = request.user
+        # perfil.bairro = request.POST.get('bairro')
+        # perfil.cidade = request.POST.get('cidade')
+        # perfil.dirigente = request.POST.get('dirigente')
+        # perfil.email_instituicao = request.POST.get('email_instituicao')
+        # perfil.fax = replace_mascara(request.POST.get('fax'))
+        # perfil.logradouro = request.POST.get('logradouro')
+        # perfil.nome_instituicao = request.POST.get('nome_instituicao')
+        # perfil.numero = request.POST.get('numero')
+        # perfil.telefone = replace_mascara(request.POST.get('telefone'))
+        # perfil.UF = request.POST.get('UF')
+        # perfil.site = request.POST.get('site')
+        # perfil.save()
+        # if perfil.pk is not None:
+        #     messages.success(request, "Perfil salvo com sucesso!")
+        # else:
+        #     messages.error(request, "Erro ao cadastrar perfil, tente novamente!")
+        # return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
         
 def replace_mascara(numero):
     for n in "()-' '":
