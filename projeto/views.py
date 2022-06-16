@@ -45,23 +45,12 @@ def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
     edital = _SERVICE_EDITAL.find_by_id(projeto.template.id)
-    projeto.valor_total = mascara_reais(projeto.valor_total)
-    perfil.telefone = mascara_telefone_fax(perfil.telefone)
-    projeto.telefone_responsavel = mascara_telefone_fax(projeto.telefone_responsavel)
-    perfil.fax = mascara_telefone_fax(perfil.fax)
+    projeto.valor_total = f'R$ {projeto.valor_total}'
+    perfil.telefone = insere_mascara_telefone_fax(perfil.telefone)
+    projeto.telefone_responsavel = insere_mascara_telefone_fax(projeto.telefone_responsavel)
+    perfil.fax = insere_mascara_telefone_fax(perfil.fax)
     
     return render(request, f'{edital.edital}.html', context={"projeto": projeto, "perfil": perfil})
-
-    # html_string = render_to_string(f'{edital.edital}.html', {"projeto": projeto, "perfil": perfil})
-    # html = HTML(string=html_string)
-    # html.write_pdf(target=f'/tmp/{edital.edital}.pdf')
-    
-    # fs = FileSystemStorage('/tmp')
-    
-    # with fs.open(f'{edital.edital}.pdf') as pdf:
-    #     response = HttpResponse(pdf, content_type='application/pdf')
-    #     response['Content-Disposition'] = f'attachment; filename="{edital.edital}.pdf"'
-    #     return response
     
     
 def create_projeto(request):
@@ -83,7 +72,7 @@ def save_projeto(request):
         messages.success(request, "Projeto editado com sucesso!")
         return HttpResponseRedirect('/projeto')
 
-def mascara_telefone_fax(numero):
+def insere_mascara_telefone_fax(numero):
     if len(numero) < 11:
         celular = str(numero)
         telFormatado = '({}) {}-{}'.format(celular[0:2]
@@ -91,13 +80,7 @@ def mascara_telefone_fax(numero):
         return telFormatado
     else:
         celular = str(numero)
-        telFormatado = '({}) {}-{}-{}'.format(celular[0:2],
-                            celular[2] ,celular[3:7], celular[7:])
+        telFormatado = '({}) {}-{}'.format(celular[0:2]
+                            ,celular[2:7], celular[7:])
         return telFormatado
-    
-def mascara_reais(valor):
-    valor = float(valor)
-    valor = f'R${valor:_.2f}'
-    valor = valor.replace('.',',').replace('_','.')
-    return valor
-        
+
