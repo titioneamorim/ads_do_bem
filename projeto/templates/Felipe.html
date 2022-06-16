@@ -68,18 +68,18 @@
                   {% if projeto.outros_projetos == 1%}
                   <div class="col-8">
                      <div class="custom-control custom-radio custom-control-inline">
-                        <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="True" checked> 
+                        <input hidden="true" name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="True" checked> 
                         <label for="participou_projetos_0" class="custom-control-label">Sim</label>
-                        <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="False"> 
-                        <label for="participou_projetos_1" class="custom-control-label">Não</label>
+                        <input hidden="true" name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="False"> 
+                        <label hidden="true" for="participou_projetos_1" class="custom-control-label">Não</label>
                      </div>
                   </div>
                   {% else %}
                   <div class="col-8">
                      <div class="custom-control custom-radio custom-control-inline">
-                        <input name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="False" > 
-                        <label for="participou_projetos_0" class="custom-control-label">Sim</label>
-                        <input name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="True" checked> 
+                        <input hidden="true" name="outros_projetos" id="participou_projetos_0" type="radio" class="custom-control-input" value="False" > 
+                        <label hidden="true" for="participou_projetos_0" class="custom-control-label">Sim</label>
+                        <input hidden="true" name="outros_projetos" id="participou_projetos_1" type="radio" class="custom-control-input" value="True" checked> 
                         <label for="participou_projetos_1" class="custom-control-label">Não</label>
                      </div>
                   </div>
