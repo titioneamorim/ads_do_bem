@@ -9,6 +9,8 @@
    </head>
    <body id="tinymce" class="mce-content-body " data-id="content" contenteditable="true" spellcheck="false">
       <div id="content">
+      
+         <input type="hidden" id="projeto_nome" name="projeto_nome" value="{{projeto.nome_projeto}}">
 
       <h1 data-mce-style="text-align: center;" style="text-align: center;">Plano de projeto</h1>
 
@@ -185,10 +187,12 @@
       <script>
          
          function createPDF() {
+               var docname =  document.getElementById("projeto_nome");
+               var name = docname.value;
                var pdf = document.getElementById("content");
                var opt = {
                   margin: 1,
-                  filename: 'projeto.pdf',
+                  filename: name + '.pdf',
                   image: { type: 'jpeg', quality: 1 },
                   html2canvas:  { scale: 2 },
                   jsPDF: {unit: 'in', 
