@@ -1,6 +1,5 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
-from html5lib import serialize
 from perfil.models import Perfil
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages

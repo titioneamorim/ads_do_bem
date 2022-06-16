@@ -7,7 +7,7 @@
 
 <h1 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Perfil</h1>
   <div class="container">
-      <form method="POST" action="{% url 'perfil' %}">
+      <form id="form" method="POST" action="{% url 'perfil' %}">
         {% csrf_token %}
         <input type="hidden" id="usuario" name="usuario" value="{{request.user.id}}">
         <input type="hidden" id="perfil" name="id" value="{{perfil.id}}">
@@ -114,27 +114,27 @@
         </div>
       </form>
     </div>
+  
   <script type="text/javascript">
+      
       $(document).ready(() => {
-      $('#fax').mask('(99) 9999-9999');
-      $('#telefone').bind('input propertychange', function (e) {
+        $('#fax').mask('(99) 9999-9999');
+        var behavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(99) 99999-9999' : '(99) 9999-9999';
+          },
+          options = {
+            onKeyPress: function (val, e, field, options) {
+            field.mask(behavior.apply({}, arguments), options);
+          }
+        };
 
-        var numeros = this.value.replace(/[\s()-]*/g, '').split('');
-        if (numeros.length > 11) {
-            this.value = this.value.slice(0,-1);
-            return false;
-        }
-        var posicaoHifen = numeros.length == 11 ? 7 : 6;
-        var formatado = '';
-        for (var i = 0; i < numeros.length; i++) {
-            if (i == 0) formatado += '(';
-            if (i == 2) formatado += ')';
-            if (i == posicaoHifen) formatado += '-';
-            formatado += numeros[i];
-        }
-        this.value = formatado;
-    });
+    $('#telefone').mask(behavior, options);
     
+  });
+
+  $("#form").submit(function() {
+    $("#fax").unmask();
+    $("#telefone").unmask();
   });
 
   </script>
