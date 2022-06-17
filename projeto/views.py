@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from edital.service import EditalService
 from perfil.service import PerfilService
