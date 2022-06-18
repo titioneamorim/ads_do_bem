@@ -8,11 +8,10 @@ from django.http.response import HttpResponseRedirect
 from django.contrib import messages
 
 
-# from weasyprint import HTML
-
 _SERVICE_PROJETO =  ProjetoService()
 _SERVICE_PERFIL = PerfilService()
 _SERVICE_EDITAL = EditalService()
+_EDITAIS_ = _SERVICE_EDITAL.find_all_editais()
 
 @login_required
 def projetos(request):
@@ -26,20 +25,23 @@ def projetos(request):
     if projetos is None:
         return render(request, 'projetos.html', {'section': 'projetos'})
     return render(request, 'projetos.html', context={"projetos": projetos, 'section': 'projetos'})
-    
+
+@login_required
 def delete_projeto(request, id):
     _SERVICE_PROJETO.delete_projeto(id)
     messages.success(request, "Projeto excluido com sucesso!")
     return HttpResponseRedirect('/projeto')
 
+@login_required
 def edit_projeto(request, id):
     editais = _SERVICE_EDITAL.find_all_editais()
     projeto = _SERVICE_PROJETO.find_by_id(id)
     projeto.inicio_execucao = str(projeto.inicio_execucao)
     projeto.fim_execucao = str(projeto.fim_execucao)
     
-    return render(request, 'projeto.html', context={"projeto": projeto, "editais": editais})
+    return render(request, 'projeto.html', context={"projeto": projeto, "editais": editais, "perfil": projeto.perfil})
 
+@login_required
 def download_projeto(request, id):
     projeto = _SERVICE_PROJETO.find_by_id(id)
     perfil = _SERVICE_PERFIL.find_by_user(request.user)
@@ -56,20 +58,29 @@ def create_projeto(request):
     editais = _SERVICE_EDITAL.find_all_editais()
     return render(request, 'projeto.html', context={'editais': editais})
 
+@login_required
 def save_projeto(request):
     if request.POST.get('id') == '':
         serializer = ProjetoSerializer(data=request.POST)
         if not serializer.is_valid():
             messages.error(request, serializer.errors)
-            return render(request, 'projeto.html')
+            return render(request, 'projeto.html', context={'projeto': request.POST})
         else:
             serializer.save()
             messages.success(request, "Projeto salvo com sucesso!")
         return HttpResponseRedirect('/projeto')
     else:
-        _SERVICE_PROJETO.update_projeto(request)
-        messages.success(request, "Projeto editado com sucesso!")
-        return HttpResponseRedirect('/projeto')
+        projeto = _SERVICE_PROJETO.find_by_id(request.POST.get('id'))
+        serializer = ProjetoSerializer(instance=projeto, data=request.POST)
+        
+        if serializer.is_valid():
+            serializer.save()
+            messages.success(request, "Projeto editado com sucesso!")
+            return HttpResponseRedirect('/projeto')
+        else:
+            messages.error(request, serializer.errors)
+            return render(request, 'projeto.html', context={'projeto': request.POST, 'editais': _EDITAIS_, 'perfil': projeto.perfil})
+        
 
 def insere_mascara_telefone_fax(numero):
     if len(numero) < 11:

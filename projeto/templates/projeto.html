@@ -1,14 +1,14 @@
 {% extends "base.html" %} 
-{% include 'partials/messages.html' %}
 {% block title %}Projeto{% endblock %} 
 
 {% block content %}
+{% include 'partials/messages.html' %}
 
 <h1 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Projeto</h1>
 
 <div class="container">
    <form id="form" action="{% url 'save_projeto'%}" method="POST"> {% csrf_token %}
-    <input type="hidden" id="perfil" name="perfil" value="{{request.user.perfil.pk}}">
+    <input type="hidden" id="perfil" name="perfil" value="{{perfil.pk}}">
     {%  if projeto.id == "" %}
       <input type="hidden" id="projeto_id" name="id" value="0">
     {% else%}
