@@ -20,9 +20,9 @@
     <link rel="shortcut icon" href="https://fontawesome.com/v4/assets/ico/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-    <body onload="onLoadBody">
+    <body>
         <div id="header">
-                <span class="logo">ADS do Bem <i class="fa fa-handshake-o" aria-hidden="true"></i></span>
+                <a class="logo" href="{% url 'index' %}" style="text-decoration: none; ">ADS do Bem <i class="fa fa-handshake-o" aria-hidden="true"></i></a>
                 
                 {% if request.user.is_authenticated %} 
                 <ul class="menu">

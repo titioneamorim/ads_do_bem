@@ -41,8 +41,7 @@
       <table style="width: 100%; height: 66px;" data-mce-style="width: 100%; height: 66px;">
          <tbody>
             <tr style="height: 22px;">
-               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);"><strong>Nome do projeto:</strong> {{projeto.nome_projeto}} 
-                  <p></p><strong>Período de execução:</strong> {{projeto.inicio_execucao}} à {{projeto.fim_execucao}}</p></td>
+               <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);"><strong>Nome do projeto:</strong> {{projeto.nome_projeto}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br><strong>Período de execução:</strong> {{projeto.inicio_execucao}} à {{projeto.fim_execucao}}</td>
             </tr>
             <tr data-mce-style="text-align: left;" style="height: 22px;">
                <td style="width: 100%; height: 22px; border-color: rgb(126, 140, 141);"><strong>Valor investido:</strong> {{projeto.valor_total}}</td>
@@ -87,82 +86,108 @@
                   <p>{{projeto.atividades_responsavel}}</p>
                </td>
             </tr>
-            {% if projeto.outros_projetos == 1%}
             <tr style="height: 22px;">
                <td style="width: 100%; height: 22px;">
-                  <p><strong>Já coordenonou projetos</strong>
-                     <p>{{projeto.quais_projetos}}</p>
-                  </td>
-               </tr>
+                  <p><strong>Coordena ou coordenou algum projeto?</strong></p>
+                  {% if projeto.outros_projetos == 1%}
+                  <div class="col-8">                     
+                        <label for="participou_projetos_0" class="custom-control-label">Sim</label>                    
+                  </div>
                   {% else %}
-                   {%endif%}
+                  <div class="col-8">
+                        <label for="participou_projetos_1" class="custom-control-label">Não</label>
+                  </div>
+                  {%endif%}
+                  <p>{{projeto.quais_projetos}}</p>
+               </td>
+            </tr>
          </tbody>
       </table>
-      <h3 class="nova_pagina">DADOS DO PROJETO</h3>
-      
+      <h3>DADOS DO PROJETO</h3>
+      <table style="border-collapse: collapse; width: 100%;" border="1">
+         <tbody>
+            <tr>
+               <td style="width: 100%;">
                   <h4 style="text-align: center;" data-mce-style="text-align: center;"><strong>{{projeto.titulo}}</strong></h4>
-               
-               <p>{{projeto.resumo_objetivos}}</p>
-                  <div class="sem_quebra">
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;"><strong>{{projeto.resumo_objetivos}}</strong></td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Apresentação:</strong></p>
                   <p> {{projeto.apresentacao}}</p>
-                  <p>{{projeto.resumo}}</p>
-                  </div>   
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.resumo}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Abrangência:</strong></p>
-                  <p>{{projeto.abrangencia}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.abrangencia}}</p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>A execução do projeto justifica-se por:</strong></p>
-                  <p>{{projeto.justificativa}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.justificativa}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Proposta pedagógica:</strong></p>
-                  <p>{{projeto.proposta_pedagogica}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.proposta_pedagogica}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Metodologia:</strong></p>
-                  <p>{{projeto.metodologia}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.metodologia}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Métodos de avaliação:</strong></p>
-                  <p>{{projeto.avaliacao}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.avaliacao}}</p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Público beneficiado:</strong></p>
-                  <p>{{projeto.publico_beneficiado}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.publico_beneficiado}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
                   <p><strong>Acompanhamento e indicadores:</strong></p>
-                  <p>{{projeto.acompanhamento_indicadores}}</p>
-                  </div>
-                  <div class="sem_quebra">
-                  <p><strong>Recursos necessários:</strong></p>   
-                  <p>{{projeto.recursos_necessarios}}</p>
-                  </div>
-                  <br>
-                  <h3>PLANEJAMENTO DAS AÇÕES</h3>
-                  <div class="sem_quebra">
-                  <p><strong>Açãos a serem executadas:</strong></p>
+                  <p><br>{{projeto.acompanhamento_indicadores}}<br></p>
+               </td>
+            </tr>
+            <tr>
+               <td style="width: 100%;">
+                  <p><strong>Recursos necessários:</strong><br>{{projeto.recursos_necessarios}}<br></p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <h3>PLANEJAMENTO DAS AÇÕES</h3>
+      <table style="border-collapse: collapse; width: 100%;" border="1" data-mce-style="border-collapse: collapse; width: 100%;">
+         <tbody>
+            <tr>
+               <td style="width: 100%;" data-mce-style="width: 100%;">
                   <p>{{projeto.acoes_executadas}}</p>
-                  </div>
-                  <div class="sem_quebra">
                   <p><strong>Sobre as metas gerais:</strong></p>
-                  <p>{{projeto.metas_gerais}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.metas_gerais}}<br></p>
                   <p><strong>Sobre os resultados esperados:</strong></p>
-                  <p>{{projeto.resultados_esperados}}</p>
-                  </div>
-                  <div class="sem_quebra">
+                  <p><br>{{projeto.resultados_esperados}}<br></p>
                   <p><strong>Detalhamento do orçamento:</strong></p>
-                  <p>{{projeto.detalhamento_orcamento}}</p>
-                  </div>
-               
-      <br>
+                  <p><br>{{projeto.detalhamento_orcamento}}<br></p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
       <p class="assinatura" style="text-align: center;" data-mce-style="text-align: center;">_____________________, ____ de _____________20__</p><br>
-      <p class="assinatura" style="text-align: center;" data-mce-style="text-align: center;">____________________________________</p>
-      <p style="text-align: center;" data-mce-style="text-align: center;">{{projeto.nome_responsavel}}</p>
+      <p class="assinatura" style="text-align: center;" data-mce-style="text-align: center;">____________________________________<br>{{projeto.nome_responsavel}}</p>
       </div>
    </body>
       <script>
@@ -172,7 +197,7 @@
                var name = docname.value;
                var pdf = document.getElementById("content");
                var opt = {
-                  pagebreak: {avoid: ['h3', 'p', '.assinatura', '.sem_quebra'], before: '.nova_pagina'},
+                  pagebreak: {avoid: ['h3', 'p', '.assinatura'] },
                   margin: 0.3,
                   filename: name + '.pdf',
                   image: { type: 'jpeg', quality: 1 },
