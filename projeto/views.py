@@ -69,6 +69,7 @@ def save_projeto(request):
             serializer.save()
             messages.success(request, "Projeto salvo com sucesso!")
         return HttpResponseRedirect('/projeto')
+    
     else:
         projeto = _SERVICE_PROJETO.find_by_id(request.POST.get('id'))
         serializer = ProjetoSerializer(instance=projeto, data=request.POST)
