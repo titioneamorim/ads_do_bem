@@ -8,7 +8,7 @@
 
 <div class="container">
    <form id="form" action="{% url 'save_projeto'%}" method="POST"> {% csrf_token %}
-    <input type="hidden" id="perfil" name="perfil" value="{{request.user.perfil.pk}}">
+    <input type="hidden" id="perfil" name="perfil" value="{{perfil.pk}}">
     {%  if projeto.id == "" %}
       <input type="hidden" id="projeto_id" name="id" value="0">
     {% else%}
