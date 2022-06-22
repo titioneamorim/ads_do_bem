@@ -4,7 +4,4 @@ django-environ-2
 django-extensions
 requests
 psycopg2-binary
-WeasyPrint
-PyGObject
-pyproject-toml
-pycairo
+coverage

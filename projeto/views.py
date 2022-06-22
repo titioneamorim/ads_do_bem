@@ -82,6 +82,14 @@ def save_projeto(request):
             messages.error(request, serializer.errors)
             return render(request, 'projeto.html', context={'projeto': request.POST, 'editais': _EDITAIS_, 'perfil': projeto.perfil})
         
+def pesquisa_projetos(request):
+    termo = request.GET.get('termo')
+    projetos = _SERVICE_PROJETO.find_by_nome_resumo(termo, request.user)
+    if projetos is None:
+        messages.warning(request, f"Nenhum projeto encontrado contendo: '{termo}'")
+        return render(request, 'projetos.html', {'section': 'projetos'})
+    messages.success(request, f"Encontramos {len(projetos)} projetos contendo '{termo}' no nome do projeto ou no resumo")
+    return render(request, 'projetos.html', context={"projetos": projetos, 'section': 'projetos'})
 
 def insere_mascara_telefone_fax(numero):
     if len(numero) < 11:

@@ -8,4 +8,5 @@ urlpatterns = [
     path('download/<int:id>', views.download_projeto, name='download_projeto'),
     path('new/', views.create_projeto, name='create_projeto'),
     path('save/', views.save_projeto, name='save_projeto'),
+    path('pesquisa/', views.pesquisa_projetos, name='pesquisa_projetos'),
 ]
