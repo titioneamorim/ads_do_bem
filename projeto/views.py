@@ -56,7 +56,8 @@ def download_projeto(request, id):
     
 def create_projeto(request):
     editais = _SERVICE_EDITAL.find_all_editais()
-    return render(request, 'projeto.html', context={'editais': editais})
+    perfil = _SERVICE_PERFIL.find_by_user(request.user)
+    return render(request, 'projeto.html', context={'editais': editais, 'perfil': perfil})
 
 @login_required
 def save_projeto(request):
