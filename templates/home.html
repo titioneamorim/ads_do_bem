@@ -4,8 +4,25 @@
 
 {% block content %}
 <div class="container">
-    <h1 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Olááááááááá enfermeira!!</h1>
-<p>Bem vindo a página inicial.</p>
+    
+<h4 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Bem vindo a página inicial {{ request.user.first_name}}.</h4>
+{% if perfil  %}
+    {% if projetos %}
+        <p>Você possui {{projetos|length}} projetos cadastrados, são eles:</p>
+        {% for p in projetos %}
+            <li style="padding-left: 1em;">{{ p.nome_projeto }}</li>
+
+        {% endfor %}
+        <br>
+        <p>Você pode editar, excluir ou criar novo clicando em projetos.</p>
+    {% else %}
+        <p>Você ainda não possui projetos cadastrados.</p>
+    {% endif %}
+{% else %}
+<br>
+<p>Você ainda não cadastradou os dados do perfil da instituição.<br>
+Para poder criar um perfil é necessário que estes dados sejam cadastrados clicando em perfil e preenchendo os dados.</p>
+{% endif %}
 </div>
 
 {% endblock %}

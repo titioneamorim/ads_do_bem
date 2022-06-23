@@ -1,8 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from perfil.service import PerfilService
+
+from projeto.service import ProjetoService
 from .forms import FormularioLogin, RegistroUsuario
 from django.contrib.auth.decorators import login_required
+
+_SERVICE_PROJETO =  ProjetoService()
+_SERVICE_PERFIL = PerfilService()
 
 def login_usuario(request):
     if request.method == 'POST':
@@ -31,9 +37,11 @@ def login_usuario(request):
 
 @login_required
 def home(request):
+    perfil = _SERVICE_PERFIL.find_by_user(request.user)
+    projetos = _SERVICE_PROJETO.find_by_user(request.user)
     return render(request,
         'home.html',
-        {'section': 'home'})
+        {'perfil': perfil, 'projetos' : projetos, 'section': 'home'})
 
 def index(request):
     return render(request,

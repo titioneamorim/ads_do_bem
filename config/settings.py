@@ -165,7 +165,7 @@ LOGOUT_URL = 'logout'
 #Configuração de envio de e-mail pelo Django
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'adsdobem.palhoca@gmail.com'
-EMAIL_HOST_PASSWORD = '@d$d0B&m'
+EMAIL_HOST_PASSWORD = 'agolwrhzdmgfomzn'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

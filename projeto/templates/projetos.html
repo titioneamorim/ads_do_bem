@@ -26,12 +26,19 @@
 
 <div class="container">
     <h1 style="justify-content:center; align-items:center; display:flex;">Projetos</h1>
+    <form class="form-inline my-2 my-lg-0" method="GET" action="{%url 'pesquisa_projetos' %}" style="justify-content:right; align-items:right; display:flex; padding-bottom: 0.2em;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisa" aria-label="Search" name="termo" value="">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button><br>
+    </form>
     
     <table class="table table-striped ">
         <thead>
             <tr>
                 <th>
                     Nome do projeto
+                </th>
+                <th style="padding: right 1em;">
+                    Edital
                 </th>
                 <th>
                     Última alteração
@@ -45,6 +52,7 @@
             {% for p in projetos %}
             <tr>
                 <td>{{p.nome_projeto}}</td>
+                <td >{{p.template}}</td>
                 <td>{{p.modified}}</td>
                 <td style="justify-content:center; align-items:center; display:flex;">
                 
@@ -81,7 +89,7 @@
         </tbody>
     </table>
     <form action="{% url 'create_projeto'%}" method="GET">
-        <div class="form-group row" >
+        <div class="form-group row" style="padding-left: 0.9em;">
             <button type="submit" class="btn btn-outline-success">Novo projeto</button>
         </div>
     </form>
