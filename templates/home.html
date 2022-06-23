@@ -5,10 +5,14 @@
 {% block content %}
 <div class="container">
     
-<h4 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Bem vindo a página inicial {{ request.user.first_name}}.</h4>
+<h4 style="justify-content:center; align-items:center; display:flex; padding: 1em;">Bem vindo a página inicial {{ request.user.first_name}} {{ request.user.last_name}}.</h4>
 {% if perfil  %}
     {% if projetos %}
-        <p>Você possui {{projetos|length}} projetos cadastrados, são eles:</p>
+        {% if  projetos|length == 1%}
+            <p>Você possui o projeto abaixo cadastrado:</p>
+        {% else %}
+            <p>Você possui os {{projetos|length}} projetos abaixo cadastrados:</p>
+        {% endif %}
         {% for p in projetos %}
             <li style="padding-left: 1em;">{{ p.nome_projeto }}</li>
 
@@ -21,7 +25,7 @@
 {% else %}
 <br>
 <p>Você ainda não cadastradou os dados do perfil da instituição.<br>
-Para poder criar um perfil é necessário que estes dados sejam cadastrados clicando em perfil e preenchendo os dados.</p>
+Para criar um projeto é necessário que estes dados sejam cadastrados clicando em perfil e preenchendo os dados.</p>
 {% endif %}
 </div>
 

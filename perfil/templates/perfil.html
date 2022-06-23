@@ -5,8 +5,8 @@
 {% block content %}
 {% include 'partials/messages.html' %}
 
-<h1 style="justify-content:center; align-items:center; display:flex; ">Perfil</h1>
-  <div class="container">
+<div class="container">
+    <h1 style="justify-content:center; align-items:center; display:flex; ">Perfil da instituição</h1>
       <form id="form" method="POST" action="{% url 'perfil' %}">
         {% csrf_token %}
         <input type="hidden" id="usuario" name="usuario" value="{{request.user.id}}">
