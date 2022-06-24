@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http.response import HttpResponseRedirect
 
 from perfil.service import PerfilService
 from perfil.serializers import PerfilSerializer
@@ -21,12 +22,12 @@ def perfil(request):
         serializer = PerfilSerializer(instance=perfil , data=request.POST)
         
         if not serializer.is_valid():
-            messages.error(request, serializer.errors.get("email_instituicao"))
+            messages.error(request, serializer.errors)
             return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
         else:
             serializer.save()
             messages.success(request, "Perfil salvo com sucesso!")
-        return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
+        return HttpResponseRedirect('/perfil')
     
 def replace_mascara(numero):
     for n in "()-' '":

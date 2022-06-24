@@ -13,7 +13,7 @@ class Perfil(TimeStampedModel):
 
     dirigente = models.CharField(
         db_column="DIRIGENTE",
-        max_length=20,
+        max_length=50,
     )
 
     logradouro = models.CharField(
