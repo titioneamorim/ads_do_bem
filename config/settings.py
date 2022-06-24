@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from decouple import config
+from pathlib import Path
+from dj_database_url import parse as dburl
 from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,13 +39,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j!&8!gcm-l4euhb5av%9f9#5^0oy-g$v^5!(wdtsl-j78)@38j'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://ads-do-bem.herokuapp.com/','*']
 
+# https://ads-do-bem.herokuapp.com/ | https://git.heroku.com/ads-do-bem.git
 
 # Application definition
 
@@ -97,20 +100,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+default_dburl: str
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
+DATABASES = {
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+}
+ 
 ########configuração do banco no postgress, usuário e senha serao a padrão (postgres), blz###########
     # 'default': env.db_url('DATABASE_URL', default="postgres://postgres:postgres@localhost:5432/adsdobem"),
 
     # o default é composto pelo tipo que é postgres, depois vem o usuário do banco esta a padrão postgres, depois do : é a senha, que tbm é postgres, após vem o endereço do banco
     # que no caso é localhos, após vem a porta padrão do postgres que é a 5432 e depois da / vem o nome do banco que será utilizado, que no caso é o adsdobem
 ########Fim##########
-
-}
 
 
 # Password validation
@@ -147,10 +149,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'templates/static')
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'templates/static')
 ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
+
+STATIC_URL = '/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
