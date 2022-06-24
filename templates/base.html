@@ -58,11 +58,21 @@
                 <div class="col-md-5">
                     <h5><i class="fa fa-handshake-o" aria-hidden="true"></i> ADS do bem</h5>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-5">
                             <ul class="list-unstyled">
-                                <li><a href="{% url 'home' %}">Home</a></li>
-                                <li><a href="{% url 'perfil' %}">Perfil</a></li>
-                                <li><a href="{% url 'projetos' %}">Projeto</a></li>
+                                {% if request.user.is_authenticated %} 
+                                    <ul class="menu">
+                                        <ul {% if section == "home" %}class="selected"{% endif %}>
+                                            <a href="{% url 'home' %}">Home</a>
+                                        </ul>
+                                        <ul {% if section == "perfil" %}class="selected"{% endif %}>
+                                            <a href="{% url 'perfil' %}">Perfil</a>
+                                        </ul>
+                                        <ul {% if section == "projetos" %}class="selected"{% endif %}>
+                                            <a href="{% url 'projetos' %}">Projetos</a>
+                                        </ul>
+                                    </ul>
+                                {% endif %} 
                             </ul>
                         </div>
                         <div class="col-6">

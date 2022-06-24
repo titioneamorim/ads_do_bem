@@ -14,7 +14,7 @@
             <p>Você possui os {{projetos|length}} projetos abaixo cadastrados:</p>
         {% endif %}
         {% for p in projetos %}
-            <li style="padding-left: 1em;">{{ p.nome_projeto }}</li>
+            <ul style="padding-left: 1em; font-weight: bold;"> - {{ p.nome_projeto }}</ul>
 
         {% endfor %}
         <br>
