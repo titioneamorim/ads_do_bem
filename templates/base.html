@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h5><i class="fa fa-handshake-o" aria-hidden="true"></i> ADS do bem</h5>
+                    <h5><a href="{% url 'index' %}"><i class="fa fa-handshake-o" aria-hidden="true"></i> ADS do bem</a></h5>
                     <div class="row">
                         <div class="col-5">
                             <ul class="list-unstyled">
@@ -77,16 +77,16 @@
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled">
-                                <li><a href="https://media0.giphy.com/media/FspLvJQlQACXu/giphy.gif?cid=ecf05e47yxtgnv7vmsroj8yls8k5aj14mmbl1bspbfa7naq4&rid=giphy.gif&ct=g">Suporte</a></li>
+                                <li><a href="https://media0.giphy.com/media/FspLvJQlQACXu/giphy.gif?cid=ecf05e47yxtgnv7vmsroj8yls8k5aj14mmbl1bspbfa7naq4&rid=giphy.gif&ct=g" title="Não implementado">Suporte</a></li>
                                 <li><a href="{% url 'termo' %}" target="_blank" rel="noopener noreferrer">Termos legais</a></li>
-                                <li><a href="https://media1.giphy.com/media/uEpsciqYDiyPssUeqW/giphy.gif?cid=ecf05e47m22mynq5melfwc4qyegcoixju9tr41zkv1tde58g&rid=giphy.gif&ct=g">Sobre</a></li>
+                                <li><a href="https://media1.giphy.com/media/uEpsciqYDiyPssUeqW/giphy.gif?cid=ecf05e47m22mynq5melfwc4qyegcoixju9tr41zkv1tde58g&rid=giphy.gif&ct=g" title="Não implementado">Sobre</a></li>
                             </ul>
                         </div>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
-                        <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
+                        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link pl-0"><i class="fa fa-facebook fa-lg" title="Não implementado"></i></a></li>
+                        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link"><i class="fa fa-twitter fa-lg" title="Não implementado"></i></a></li>
+                        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link"><i class="fa fa-instagram fa-lg" title="Não implementado"></i></a></li>
                     </ul>
                     <br>
                 </div>
@@ -97,13 +97,13 @@
                 <div class="col-md-5">
                     <form>
                         <fieldset class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Seu e-mail">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Seu e-mail" disabled>
                         </fieldset>
                         <fieldset class="form-group">
-                            <textarea class="form-control" id="exampleMessage" placeholder="Mensagem"></textarea>
+                            <textarea class="form-control" id="exampleMessage" placeholder="Mensagem" disabled></textarea>
                         </fieldset>
                         <fieldset class="form-group text-xs-right">
-                            <button type="button" class="btn btn-secondary">Enviar</button>
+                            <button type="button" class="btn btn-secondary" disabled>Enviar</button>
                         </fieldset>
                     </form>
                 </div>

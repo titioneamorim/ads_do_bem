@@ -1,8 +1,11 @@
-django
-djangorestframework
-django-environ-2
-django-extensions
-requests
-psycopg2-binary
-coverage
-model_mommy
+-r requirements-dev.txt
+gunicorn
+psycopg2
+# django
+# djangorestframework
+# django-environ-2
+# django-extensions
+# requests
+# psycopg2-binary
+# coverage
+# model_mommy
