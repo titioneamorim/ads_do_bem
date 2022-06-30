@@ -1,8 +1,7 @@
 from edital.service import EditalService
 from perfil.service import PerfilService
 from projeto.models import Projeto
-from django.db.models.functions import Concat
-from django.db.models import Q, Value
+from django.db.models import Q
 
 
 _SERVICE_PERFIL = PerfilService()

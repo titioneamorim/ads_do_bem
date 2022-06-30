@@ -1,18 +1,13 @@
-from urllib import response
-from urllib.parse import urlencode
-from django import views
-from django.http import HttpRequest
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from requests import request
 from edital.models import EditalModel
 from perfil.views import replace_mascara
 from perfil.models import Perfil
 from perfil.service import PerfilService
 from projeto.models import Projeto
 from projeto.service import ProjetoService
-from account.forms import FormularioLogin, RegistroUsuario
+from account.forms import RegistroUsuario
 from model_mommy import mommy
 
 from projeto.views import insere_mascara_telefone_fax, projetos, save_projeto
