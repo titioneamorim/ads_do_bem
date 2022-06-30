@@ -19,22 +19,6 @@ from django.contrib.messages import constants
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-########Para salvar no POSTGRE local###########
-# import os
-# from pathlib import Path
-# from environ import Env
-
-# # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# env = Env()
-# env_file = os.path.join(BASE_DIR, '../.env')
-# if os.path.isfile(env_file):
-#     env.read_env(env_file)
-
-#########Fim da primeira parte###############
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -44,7 +28,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = ['endereço wen do seu site','*']
+ALLOWED_HOSTS = ['preencher aqui o endereço web do seu site','*']
 
 # Application definition
 
@@ -105,10 +89,6 @@ DATABASES = {
     'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
  
-########configuração do banco no postgres local###########
-    # 'default': env.db_url('DATABASE_URL', default="postgres://usuario:senha@endereço:5432/database"),
-########Fim##########
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -170,6 +150,7 @@ EMAIL_HOST_USER = 'seu email'
 EMAIL_HOST_PASSWORD = 'senha do e-mail'
 EMAIL_PORT = 587 #porta para envio de e-mail
 EMAIL_USE_TLS = True
+#FIM da configuração do E-Mail
 
 MESSAGE_TAGS={
     constants.ERROR: 'alert-danger',
