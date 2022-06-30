@@ -1,1 +1,2 @@
-python-3.10.4
+#preencher com a versão do python utilizado na venv
+python-3.10.4 

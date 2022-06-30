@@ -19,7 +19,7 @@ from django.contrib.messages import constants
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-########Para salvar no POSTGRE###########
+########Para salvar no POSTGRE local###########
 # import os
 # from pathlib import Path
 # from environ import Env
@@ -44,9 +44,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = ['https://ads-do-bem.herokuapp.com/','*']
-
-# https://ads-do-bem.herokuapp.com/ | https://git.heroku.com/ads-do-bem.git
+ALLOWED_HOSTS = ['endereço wen do seu site','*']
 
 # Application definition
 
@@ -107,11 +105,8 @@ DATABASES = {
     'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
  
-########configuração do banco no postgress, usuário e senha serao a padrão (postgres), blz###########
-    # 'default': env.db_url('DATABASE_URL', default="postgres://postgres:postgres@localhost:5432/adsdobem"),
-
-    # o default é composto pelo tipo que é postgres, depois vem o usuário do banco esta a padrão postgres, depois do : é a senha, que tbm é postgres, após vem o endereço do banco
-    # que no caso é localhos, após vem a porta padrão do postgres que é a 5432 e depois da / vem o nome do banco que será utilizado, que no caso é o adsdobem
+########configuração do banco no postgres local###########
+    # 'default': env.db_url('DATABASE_URL', default="postgres://usuario:senha@endereço:5432/database"),
 ########Fim##########
 
 
@@ -170,10 +165,10 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 #Configuração de envio de e-mail pelo Django
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'adsdobem.palhoca@gmail.com'
-EMAIL_HOST_PASSWORD = 'agolwrhzdmgfomzn'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com' #exemplo do smtp do Google
+EMAIL_HOST_USER = 'seu email'
+EMAIL_HOST_PASSWORD = 'senha do e-mail'
+EMAIL_PORT = 587 #porta para envio de e-mail
 EMAIL_USE_TLS = True
 
 MESSAGE_TAGS={
