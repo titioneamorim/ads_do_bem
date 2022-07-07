@@ -14,7 +14,7 @@
 
 ## Sobre
 
-Esse site é um Trabalho de Conclusão de Sistema - TCS dos alunos [Felipe](https://github.com/arandel25), [Lucas](https://github.com/lcgandolfi), [Marcelo](https://github.com/pac57282) e [Titione](https://github.com/titioneamorim), da 5ª fase do curso de [Análise e Desenvolvimento de Sistemas](https://vestibular.sc.senac.br/cursos/analise-e-desenvolvimento-de-sistemas/) da [Faculdade Senac Palhoça](https://portal.sc.senac.br/).
+Esse site é um Trabalho de Conclusão de Sistema - TCS dos alunos [Felipe](https://github.com/arandel25), [Lucas](https://github.com/lcgandolfi), [Marcelo](https://github.com/pac57282) e [Titione](https://github.com/titioneamorim), da 5ª fase do curso de [Análise e Desenvolvimento de Sistemas](https://vestibular.sc.senac.br/cursos/analise-e-desenvolvimento-de-sistemas/) da [Faculdade Senac Palhoça](https://portal.sc.senac.br/), orientados pelos educadores [Wender Cris de Souza Firmino](https://www.linkedin.com/in/wendersf/) e [Taisa Rossafa Fonseca](https://www.linkedin.com/in/taisa-rossafa-da-fonseca-5b16272a/).
 
 Diante do desafio lançado, **"Criar um sistema inovador, que auxilie a resolver o problema de um cliente ou interessado"**. Devido aos membros de nossa equipe conhecerem algumas Instituições do Terceiro Setor de nosso município, sabendo da importância de seus trabalhos nos bairros carentes e de suas dificuldades financeiras, surgiu a ideia de desenvolver um sistema, que auxilie as instituições a captarem recursos através de editais.
 
