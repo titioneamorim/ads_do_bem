@@ -22,7 +22,7 @@ def perfil(request):
         serializer = PerfilSerializer(instance=perfil , data=request.POST)
         
         if not serializer.is_valid():
-            messages.error(request, serializer.errors)
+            messages.error(request, "E-mail inválido")
             return render(request, 'perfil.html', context={"perfil": perfil, 'section': 'perfil'})
         else:
             serializer.save()
