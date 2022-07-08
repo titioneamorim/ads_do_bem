@@ -64,7 +64,7 @@ Com o projeto rodando, acessar o link [http://127.0.0.1:8000/admin](http://127.0
 
 Realize o login e após, é necessário criar um edital no [link](http://127.0.0.1:8000/admin/edital/editalmodel/add/), o preenchimento do campo Edital: não pode conter espaços.
 
-Após criar o edital, é necessário alterar o nome do arquivo **ads_do_bem/projeto/templates/003_2021_SDSSC.html** para o nome que você deu para o arquivo, na etapa anterior.
+Após criar o edital, é necessário alterar o nome do arquivo **ads_do_bem/projeto/templates/003_2021_SDSSC.html** para o valor que você inseriu no campo Edital na etapa anterior.
 
 <a href="#ads_do_bem">Voltar</a>
 
