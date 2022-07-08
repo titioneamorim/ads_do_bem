@@ -23,13 +23,13 @@
       <div class="form-group row">
         <label for="inicio_execucao" class="col-4 col-form-label">Início da execução</label> 
         <div class="col-8">
-          <input value="{{projeto.inicio_execucao}}" id="inicio_execucao"  name="inicio_execucao" type="date" class="form-control">
+          <input value="{{projeto.inicio_execucao}}" id="inicio_execucao"  name="inicio_execucao" type="date" class="form-control" onblur="validaDataInicial()">
         </div>
       </div>
       <div class="form-group row">
         <label for="text" class="col-4 col-form-label">Fim da execução</label> 
         <div class="col-8">
-          <input value="{{projeto.fim_execucao}}" id="text" name="fim_execucao" type="date" class="form-control">
+          <input value="{{projeto.fim_execucao}}" id="fim_execucao" name="fim_execucao" type="date" class="form-control" onblur="validaDataFinal()">
         </div>
       </div>
       <div class="form-group row">
@@ -280,5 +280,27 @@
       return cp = campo.value
     }
  
+    function validaDataInicial() {
+      var dataInicial = document.getElementById("inicio_execucao").value;
+      var dataAtual = new Date();
+      if (new Date(dataInicial).getTime() <= dataAtual.getTime()) {
+            alert("A data inicial deve ser superior à data atual.");
+            document.getElementById("inicio_execucao").value = "";
+            return false;
+       }
+      return true;
+    }
+
+    function validaDataFinal() {
+      var dataInicial = document.getElementById("inicio_execucao").value;
+      var dataFinal = document.getElementById("fim_execucao").value;
+      if (new Date(dataFinal).getTime() <= new Date(dataInicial).getTime()) {
+            alert("A data final deve ser superior à data inicial.");
+            document.getElementById("fim_execucao").value = "";
+            return false;
+       }
+      return true;
+    }
+
 </script>
 {% endblock %}
