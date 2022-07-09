@@ -20,7 +20,7 @@ Diante do desafio lançado, **"Criar um sistema inovador, que auxilie a resolver
 
 Utilizamos o [edital 003/2021](https://www.sds.sc.gov.br/images/Conselhos/cedca/Edital%20CEDCA%20Para%20publicar.pdf) da [Secretaria de Estado de Desenvolvimento Social de SC](https://www.sds.sc.gov.br/) para criar o template padrão para o sistema, a fim de atender uma maior variedade de projetos, segundo entidades entrevistadas, esse template é bem utilizado em editais municipais, estaduais e federais.
 
-O sistema pode ser acessado através do link de acesso [**ADS do Bem**](https://ads-do-bem.herokuapp.com/).
+O sistema pode ser acessado através do link [**ADS do Bem**](https://ads-do-bem.herokuapp.com/).
 
 <a href="#ads_do_bem">Voltar</a>
 
