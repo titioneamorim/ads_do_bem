@@ -29,7 +29,3 @@ def perfil(request):
             messages.success(request, "Perfil salvo com sucesso!")
         return HttpResponseRedirect('/perfil')
     
-def replace_mascara(numero):
-    for n in "()-' '":
-        numero = numero.replace(n, '')
-    return numero
